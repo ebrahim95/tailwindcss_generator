@@ -2,25 +2,23 @@
   import svelteLogo from "./assets/svelte.svg";
   import viteLogo from "/vite.svg";
   import Counter from "./lib/Counter.svelte";
+
+  let control_values = "";
 </script>
+
 <!--
   
   First lets create a simple box creator
-  -- Add the properties of flex box, width, height, color, border, margin, padding.
+  -- Add the properties of flex box, width, height, color, border, margin, padding, font
   Second if a simple component is made, display it's properties on the side
 
---> 
+-->
+<main
+  class="my-6 flex flex-row place-content-center justify-items-center items-center w-9/12 mx-auto gap-5"
+>
+  <section>
+    <h1>Tailwind CSS Component Generator</h1>
 
-<main>
-  <div>
-    <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-      <img src={viteLogo} class="logo" alt="Vite Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank" rel="noreferrer">
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-    </a>
-  </div>
-  <h1>Vite + Svelte</h1>
     <div id="color-picker">
       <h2>Color Picker</h2>
       <div id="color-panel" class="grid grid-cols-5 gap-2">
@@ -114,12 +112,41 @@
         />
       </div>
     </div>
+    <div id="border-control">
+      <h2>Border</h2>
+      <input id="border-width" type="range" min="1" max="50" value="25" />
+      <label for="border-width">Border-Width</label>
+      <br />
 
-  <div class="card">
-    <Counter />
+      <input id="border-radius" type="range" min="1" max="50" value="25" />
+      <label for="border-radius">Border-Width</label>
+      <br />
+    </div>
+    <div id="padding-control">
+      <h2>Padding</h2>
+      <input id="padding-top" type="range" min="1" max="50" />
+      <label for="padding-top">Padding Top</label>
+      <br />
+      <input id="padding-bottom" type="range" min="1" max="50" />
+      <label for="padding-bottom">Padding Bottom</label>
+      <br />
+
+      <input id="padding-left" type="range" min="1" max="50" />
+      <label for="padding-left">Padding Left</label>
+      <br />
+
+      <input id="padding-right" type="range" min="1" max="50" />
+      <label for="padding-right">Padding Right</label>
+    </div>
+  </section>
+
+  <div class="w-[400px] h-[400px] border-black border-2">
+    <div class={control_values} />
   </div>
 
-  <p class="read-the-docs">Click on the Vite and Svelte logos to learn more</p>
+  <!--   <div class="card">
+    <Counter />
+  </div> -->
 </main>
 
 <style>
@@ -135,8 +162,6 @@
   .logo.svelte:hover {
     filter: drop-shadow(0 0 2em #ff3e00aa);
   }
-  .read-the-docs {
-    color: #888;
 
   #color-panel > div:hover {
     border: 4px solid black;
