@@ -5,7 +5,15 @@ const config = {
   theme: {
     extend: {},
   },
+  safelist: [
 
+    {
+      pattern: /p-\d+/s
+    },
+    {
+      pattern: /border-[a-z]+-\d+/s
+    },
+  ],
   plugins: [],
 };
 
