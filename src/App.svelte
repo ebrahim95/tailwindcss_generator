@@ -1,11 +1,10 @@
 <script lang="ts">
-  // import { getContext } from "svelte";
   // import svelteLogo from "./assets/svelte.svg";
   // import viteLogo from "/vite.svg";
   // import Counter from "./lib/Counter.svelte";
+  import { padding, color, border_width } from "./lib/stores";
   import PaddingPanel from "./lib/PaddingPanel.svelte";
   import DrawingComponent from "./lib/DrawingComponent.svelte";
-  import { padding, color, border_width } from "./lib/stores";
   import ColorPicker from "./lib/ColorPicker.svelte";
   import BorderPanel from "./lib/BorderPanel.svelte";
 
@@ -25,7 +24,6 @@
   First lets create a simple box creator
   -- Add the properties of flex box, width, height, color, border, margin, padding, font
   Second if a simple component is made, display it's properties on the side
-//TODO: commone controls will be in one panel, expeceptions will added
 -->
 <main
   class="my-6 flex flex-row place-content-center justify-items-center items-center w-9/12 mx-auto gap-5"
