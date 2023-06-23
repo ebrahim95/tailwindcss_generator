@@ -8,13 +8,17 @@ const config = {
   safelist: [
 
     {
-      pattern: /p-\d+/s
+      pattern: /p[a-z]-\d+/
     },
+
     {
       pattern: /border-[a-z]+-\d+/s
     },
   ],
-  plugins: [],
+  plugins: [require("daisyui")],
+  daisyui: {
+    themes: ["fantasy"]
+  }
 };
 
 module.exports = config;
