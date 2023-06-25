@@ -12,7 +12,11 @@ const config = {
     },
 
     {
-      pattern: /border-[a-z]+-\d+/s
+      pattern: /border-[a-z]+-\d+/
+    },
+
+    {
+      pattern: /border-[a-z]/
     },
   ],
   plugins: [require("daisyui")],
