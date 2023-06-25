@@ -26,7 +26,7 @@
   Second if a simple component is made, display it's properties on the side
 -->
 <main
-  class="my-6 flex flex-row place-content-center justify-items-center items-center w-9/12 mx-auto gap-5"
+  class=" my-4 flex flex-row place-content-center justify-items-center items-center w-9/12 mx-auto gap-5"
 >
   <section>
     <h1>Tailwind CSS Component Generator</h1>
