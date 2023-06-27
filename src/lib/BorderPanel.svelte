@@ -115,7 +115,7 @@ $: border_collection_mapped = border_width.update(() => {
     id="border-radius"
     type="range"
     min="1"
-    max="50"
-    value="25"
+    max="10"
+    value="0"
   />
 </div>
