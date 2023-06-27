@@ -26,11 +26,11 @@
   Second if a simple component is made, display it's properties on the side
 -->
 <main
-  class=" my-4 flex flex-row place-content-center justify-items-center items-center w-9/12 mx-auto gap-5"
+  class="grid grid-cols-2 w-12/12 "
 >
-  <section>
+  <section class="w-5/12 flex flex-col items-start border-black border-r-4 p-4">
     <h1>Tailwind CSS Component Generator</h1>
-    <select bind:value={id_change} id="edit-component">
+    <select bind:value={id_change} id="edit-component" class="select select-bordered" >
       <option value="bg">Background</option>
       <option value="border">Border</option>
     </select>
@@ -54,6 +54,8 @@
 </main>
 
 <style>
+
+
   .logo {
     height: 6em;
     padding: 1.5em;
