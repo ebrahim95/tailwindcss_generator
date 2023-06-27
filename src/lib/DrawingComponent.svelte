@@ -1,14 +1,24 @@
-<script>
-  export let padding;
-  export let bg_color;
-  export let border_color;
-  export let border_width;
+<script lang="ts">
+  export let padding: string;
+  export let bg_color: string;
+  export let border_color: string;
+  export let border_width: string;
+  export let show_code: boolean;
 </script>
 
 <div
   id="pendu"
-  class="w-7/12"
+  class="flex flex-col w-full place-items-center place-content-center"
 >
-  <div class={`my-auto w-[400px] h-[400px] ${padding} ${bg_color} ${border_width} ${border_color} `}>
-  </div>
+  {#if show_code}
+    <div
+      class={`my-auto w-[400px] h-[400px] ${padding} ${bg_color} ${border_width} ${border_color} `}
+    >
+      hello
+    </div>
+  {:else}
+    <div>
+      {`my-auto w-[400px] h-[400px] ${padding} ${bg_color} ${border_width} ${border_color} `}
+    </div>
+  {/if}
 </div>
