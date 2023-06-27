@@ -27,6 +27,12 @@
     toggle: false,
   };
 
+$: border_collection_mapped = border_width.update(() => {
+      return border_width_collection
+        .map((value) => value.replace("-1", ""))
+        .join(" ");
+    });
+
   $: if (bt.toggle && bb.toggle && bl.toggle && br.toggle) {
     //border_width_collection[4] = "border-" + width;
 
@@ -38,25 +44,32 @@
     bb.value = Number(width);
     bl.value = Number(width);
     br.value = Number(width);
-    border_width.update(() => {
-      return border_width_collection
-        .map((value) => value.replace("-1", ""))
-        .join(" ");
-    });
-    console.log(border_width_collection);
+
   } else if (bt.toggle && bb.toggle) {
     border_width_collection[0] = "border-t-" + width;
     border_width_collection[1] = "border-b-" + width;
 
     bt.value = Number(width);
     bb.value = Number(width);
-    console.log(border_width_collection);
   } else if (br.toggle && bl.toggle) {
     border_width_collection[2] = "border-r-" + width;
     border_width_collection[3] = "border-l-" + width;
     br.value = Number(width);
     bl.value = Number(width);
-  }
+  } else if (bt.toggle) {
+    border_width_collection[0] = "border-t-" + width;
+    bt.value = Number(width);
+} else if (bb.toggle) {
+    border_width_collection[1] = "border-b-" + width;
+    bb.value = Number(width);
+} else if (br.toggle) {
+    border_width_collection[2] = "border-r-" + width;
+    br.value = Number(width);
+} else if (bl.toggle) {
+    border_width_collection[3] = "border-l-" + width;
+    bl.value = Number(width);
+}
+
 </script>
 
 <div class="my-4" id="border-control">
