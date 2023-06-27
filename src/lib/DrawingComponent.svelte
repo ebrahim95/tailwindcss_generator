@@ -7,7 +7,8 @@
 
 <div
   id="pendu"
-  class={`w-[400px] h-[400px] ${padding} ${bg_color} ${border_width} ${border_color} `}
+  class="w-7/12"
 >
-  Hello
+  <div class={`my-auto w-[400px] h-[400px] ${padding} ${bg_color} ${border_width} ${border_color} `}>
+  </div>
 </div>
