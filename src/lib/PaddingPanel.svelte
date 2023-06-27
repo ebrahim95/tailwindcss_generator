@@ -1,5 +1,4 @@
 <script lang="ts">
-  //TODO: add a style that changes color depending on true or false for padding t,b,l,r
   import { padding } from "./stores";
   let padding_value: number = 0;
   let padding_direction: string[] = ["pt", "pb", "pr", "pl"];
@@ -62,43 +61,34 @@
 
 <div id="padding-control">
   <h2>Padding</h2>
-  <div class="mb-2">
-    <input
-      class="input input-bordered mb-2"
-      id="padding"
-      type="number"
-      min="0"
-      max="10"
-      bind:value={padding_value}
-      on:input={() => {
-        padding.update(() => padding_tailwind);
-      }}
-    />
-    <input
-      class="range mb-2"
-      id="padding"
-      type="range"
-      min="0"
-      max="10"
-      step="1"
-      bind:value={padding_value}
-      on:input={() => {
-        padding.update(() => padding_tailwind);
-      }}
-    />
-    <div class="w-full flex justify-between text-xs px-2">
-      <span>|</span>
-      <span>|</span>
-      <span>|</span>
-      <span>|</span>
-      <span>|</span>
-      <span>|</span>
-      <span>|</span>
-      <span>|</span>
-      <span>|</span>
-      <span>|</span>
-    </div>
-  </div>
+  <label for="padding-range">Padding Selector</label>
+
+  <input
+    class="range mb-2"
+    id="padding-range"
+    type="range"
+    min="0"
+    max="10"
+    step="0.5"
+    bind:value={padding_value}
+    on:input={() => {
+      padding.update(() => padding_tailwind);
+    }}
+  />
+
+  <!-- step="1" -->
+  <!-- <div class="w-full flex justify-between text-xs px-2">
+         <span>|</span>
+         <span>|</span>
+         <span>|</span>
+         <span>|</span>
+         <span>|</span>
+         <span>|</span>
+         <span>|</span>
+         <span>|</span>
+         <span>|</span>
+         <span>|</span>
+         </div> -->
 
   <br />
   <div class="join">
