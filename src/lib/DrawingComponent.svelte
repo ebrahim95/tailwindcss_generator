@@ -1,4 +1,5 @@
 <script lang="ts">
+  export let border_radius: string;
   export let padding: string;
   export let bg_color: string;
   export let border_color: string;
@@ -12,7 +13,7 @@
 >
   {#if show_code}
     <div
-      class={`my-auto w-[400px] h-[400px] ${padding} ${bg_color} ${border_width} ${border_color} `}
+      class={`my-auto w-[400px] h-[400px] ${padding} ${bg_color} ${border_width} ${border_color} ${border_radius}`}
     >
       hello
     </div>
@@ -21,7 +22,7 @@
       <pre>
         <code>
 
-      {`my-auto w-[400px] h-[400px] ${padding} ${bg_color} ${border_width} ${border_color} `}
+      {`my-auto w-[400px] h-[400px] ${padding} ${bg_color} ${border_width} ${border_color} ${border_radius}`}
         </code>
       </pre>
     </div>
