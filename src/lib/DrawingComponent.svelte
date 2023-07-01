@@ -17,8 +17,13 @@
       hello
     </div>
   {:else}
-    <div>
+    <div class="mockup-code">
+      <pre>
+        <code>
+
       {`my-auto w-[400px] h-[400px] ${padding} ${bg_color} ${border_width} ${border_color} `}
+        </code>
+      </pre>
     </div>
   {/if}
 </div>
