@@ -6,7 +6,7 @@
     import DrawingComponent from "./lib/DrawingComponent.svelte";
     import ColorPicker from "./lib/ColorPicker.svelte";
     import BorderPanel from "./lib/BorderPanel.svelte";
-
+import SideButtons from "./lib/SideButtons.svelte";
     let show_code: boolean = true;
     let id_change = "bg";
     let bg_color: string = "";
@@ -22,6 +22,8 @@
     //NOTE Maybe add skeleton ui for easy shipping
     //NOTE Regex for decimals
     //TODO figure out the border radius
+    //NOTE Where I need to edit and how will it be achieved
+    //NOTE So I need abstract the left right top and bottom
 </script>
 
 <!--
@@ -37,6 +39,8 @@
         <button on:click={() => (show_code = !show_code)} class="btn"
             >Show Code</button
         >
+
+        <SideButtons />
         <ColorPicker />
         <select
             bind:value={id_change}
@@ -46,9 +50,7 @@
             <option value="bg">Background</option>
             <option value="border">Border</option>
         </select>
-
         <BorderPanel />
-
         <PaddingPanel />
     </section>
     <DrawingComponent
@@ -61,6 +63,7 @@
 </main>
 
 <style>
+
     .logo {
         height: 6em;
         padding: 1.5em;
