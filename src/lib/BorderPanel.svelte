@@ -110,12 +110,14 @@ $: border_collection_mapped = border_width.update(() => {
   </div>
   <br />
   <label class="label" for="border-radius">Border-Radius</label>
-  <input
-    class="range"
-    id="border-radius"
-    type="range"
-    min="1"
-    max="10"
-    value="0"
-  />
-</div>
+  <select class="select select-bordered">
+    <option value="0">"sm"</option>
+    <option value="1">"Default"</option>
+    <option value="0">"md"</option>
+    <option value="0">"lg"</option>
+    <option value="0">"xl"</option>
+    <option value="0">"2xl"</option>
+    <option value="0">"3xl"</option>
+    <option value="0">"full"</option>
+  </select>
+ </div>
