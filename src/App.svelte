@@ -1,16 +1,19 @@
 <script lang="ts">
   // import svelteLogo from "./assets/svelte.svg";
   // import viteLogo from "/vite.svg";
-  import { padding, color, border_width, border_radius } from "./lib/stores";
+  import { color } from "./lib/stores";
   import PaddingPanel from "./lib/PaddingPanel.svelte";
   import DrawingComponent from "./lib/DrawingComponent.svelte";
   import ColorPicker from "./lib/ColorPicker.svelte";
   import BorderPanel from "./lib/BorderPanel.svelte";
   import SideButtons from "./lib/SideButtons.svelte";
+  import AddHtmlComponent from "./lib/AddHtmlComponent.svelte";
+
   let show_code: boolean = true;
   let id_change = "bg";
   let bg_color: string = "";
   let border_color: string = "border-black";
+  let panel_toggle: string = "border";
 
   $: if (id_change === "bg") {
     bg_color = id_change + "-" + $color;
@@ -21,9 +24,9 @@
   //NOTE Add autocompletion to the select files
   //NOTE Maybe add skeleton ui for easy shipping
   //NOTE Regex for decimals
-  //TODO figure out the border radius
   //NOTE Where I need to edit and how will it be achieved
   //NOTE So I need abstract the left right top and bottom
+  //NOTE abstract border and padding
 </script>
 
 <!--
@@ -37,8 +40,7 @@
     <button on:click={() => (show_code = !show_code)} class="btn"
       >Show Code</button
     >
-
-    <SideButtons />
+    <AddHtmlComponent />
     <ColorPicker />
     <select
       bind:value={id_change}
@@ -48,30 +50,35 @@
       <option value="bg">Background</option>
       <option value="border">Border</option>
     </select>
-    <BorderPanel />
-    <PaddingPanel />
+
+    <select
+      bind:value={panel_toggle}
+      id="panel_toggle"
+      class="select select-bordered my-1"
+    >
+      <option value="border">Border</option>
+      <option value="padding">Padding</option>
+    </select>
+    {#if panel_toggle === "border"}
+      <BorderPanel />
+    {:else}
+      <PaddingPanel />
+    {/if}
   </section>
-  <DrawingComponent
-    padding={$padding}
-    {bg_color}
-    border_width={$border_width}
-    {border_color}
-    {show_code}
-    border_radius={$border_radius}
-  />
+  <DrawingComponent {bg_color} {border_color} {show_code} />
 </main>
 
 <style>
-  .logo {
+  /* .logo {
     height: 6em;
     padding: 1.5em;
     will-change: filter;
     transition: filter 300ms;
-  }
-  .logo:hover {
+    }
+    .logo:hover {
     filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.svelte:hover {
+    }
+    .logo.svelte:hover {
     filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
+    } */
 </style>
