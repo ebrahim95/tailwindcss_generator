@@ -7,7 +7,9 @@
             <button class="rounded-bl-lg">L</button>
             <button class="rounded-br-lg">R</button>
    </div>
+
 <style>
+
     #group-buttons > button {
         border-color: black;
         border-width: 2px;
