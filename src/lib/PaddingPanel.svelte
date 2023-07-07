@@ -61,6 +61,33 @@
 
 <div id="padding-control">
   <h2>Padding</h2>
+  <div id="group-buttons" class="grid grid-cols-2 grid-rows-2 my-2 w-24">
+    <button
+      class={`rounded-tl-lg ${pt.toggle ? "active" : ""}`}
+      on:click={() => (pt.toggle = !pt.toggle)}
+    >
+      {pt.value}</button
+    >
+    <button
+      class={`rounded-tr-lg ${pb.toggle ? "active" : ""}`}
+      on:click={() => (pb.toggle = !pb.toggle)}
+    >
+      {pb.value}</button
+    >
+    <button
+      class={`rounded-bl-lg ${pl.toggle ? "active" : ""}`}
+      on:click={() => (pl.toggle = !pl.toggle)}
+    >
+      {pl.value}</button
+    >
+    <button
+      class={`rounded-br-lg ${pr.toggle ? "active" : ""}`}
+      on:click={() => (pr.toggle = !pr.toggle)}
+    >
+      {pr.value}</button
+    >
+  </div>
+
   <label for="padding-range">Padding Selector</label>
 
   <input
@@ -91,22 +118,20 @@
          </div> -->
 
   <br />
-  <div class="join">
-    <button
-      class={`btn btn-primary join-item ${pt.toggle ? "btn-active" : ""}`}
-      on:click={() => (pt.toggle = !pt.toggle)}>TOP {pt.value}</button
-    >
-    <button
-      class={`btn btn-primary join-item ${pb.toggle ? "btn-active" : ""}`}
-      on:click={() => (pb.toggle = !pb.toggle)}>BOTTOM {pb.value}</button
-    >
-    <button
-      class={`btn btn-primary join-item ${pl.toggle ? "btn-active" : ""}`}
-      on:click={() => (pl.toggle = !pl.toggle)}>LEFT {pl.value}</button
-    >
-    <button
-      class={`btn btn-primary join-item ${pr.toggle ? "btn-active" : ""}`}
-      on:click={() => (pr.toggle = !pr.toggle)}>RIGHT {pr.value}</button
-    >
-  </div>
 </div>
+
+<style>
+  #group-buttons > button {
+    border-color: black;
+    border-width: 2px;
+    padding: 5px 10px;
+  }
+
+  #group-buttons > button:hover {
+    background-color: chocolate;
+  }
+
+  #group-buttons > .active {
+    background-color: lightblue;
+  }
+</style>
