@@ -75,54 +75,75 @@
   }
 </script>
 
-<div class="my-4" id="border-control">
-  <h2>Border</h2>
-
+<div class="my-1" id="border-control">
   <!--- Map a new array, by removing the -1 -->
-  <label class="label" for="border-width">Width</label>
-  <select
-    class="select select-bordered mb-2"
-    bind:value={width}
-    id="border-width"
-  >
-    <option value="0">0</option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="4">4</option>
-    <option value="8">8</option>
-  </select>
-  <br />
+  <div>
+    <label class="label" for="border-width">Width</label>
+    <select class="select select-bordered" bind:value={width} id="border-width">
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="4">4</option>
+      <option value="8">8</option>
+    </select>
 
-  <div class="join">
+    <label class="label" for="border-radius">Radius</label>
+    <select
+      class="select select-bordered"
+      bind:value={border_radius_collection}
+    >
+      <option value="rounded-sm">"sm"</option>
+      <option value="rounded">"Default"</option>
+      <option value="rounded-md">"md"</option>
+      <option value="rounded-lg">"lg"</option>
+      <option value="rounded-xl">"xl"</option>
+      <option value="rounded-2xl">"2xl"</option>
+      <option value="rounded-3xl">"3xl"</option>
+      <option value="rounded-full">"full"</option>
+    </select>
+  </div>
+
+  <div id="group-buttons" class="grid grid-cols-2 grid-rows-2 my-2 w-24">
     <button
-      class={`btn btn-primary join-item ${bt.toggle ? "btn-active" : ""}`}
-      on:click={() => {
-        return (bt.toggle = !bt.toggle);
-      }}>TOP {bt.value}</button
+      class={`rounded-tl-lg ${bt.toggle ? "active" : ""}`}
+      on:click={() => (bt.toggle = !bt.toggle)}
+    >
+      {bt.value}</button
     >
     <button
-      class={`btn btn-primary join-item ${bb.toggle ? "btn-active" : ""}`}
-      on:click={() => (bb.toggle = !bb.toggle)}>BOTTOM {bb.value}</button
+      class={`rounded-tr-lg ${bb.toggle ? "active" : ""}`}
+      on:click={() => (bb.toggle = !bb.toggle)}
+    >
+      {bb.value}</button
     >
     <button
-      class={`btn btn-primary join-item ${bl.toggle ? "btn-active" : ""}`}
-      on:click={() => (bl.toggle = !bl.toggle)}>LEFT {bl.value}</button
+      class={`rounded-bl-lg ${bl.toggle ? "active" : ""}`}
+      on:click={() => (bl.toggle = !bl.toggle)}
+    >
+      {bl.value}</button
     >
     <button
-      class={`btn btn-primary join-item ${br.toggle ? "btn-active" : ""}`}
-      on:click={() => (br.toggle = !br.toggle)}>RIGHT {br.value}</button
+      class={`rounded-br-lg ${br.toggle ? "active" : ""}`}
+      on:click={() => (br.toggle = !br.toggle)}
+    >
+      {br.value}</button
     >
   </div>
   <br />
-  <label class="label" for="border-radius">Border-Radius</label>
-  <select class="select select-bordered" bind:value={border_radius_collection}>
-    <option value="rounded-sm">"sm"</option>
-    <option value="rounded">"Default"</option>
-    <option value="rounded-md">"md"</option>
-    <option value="rounded-lg">"lg"</option>
-    <option value="rounded-xl">"xl"</option>
-    <option value="rounded-2xl">"2xl"</option>
-    <option value="rounded-3xl">"3xl"</option>
-    <option value="rounded-full">"full"</option>
-  </select>
 </div>
+
+<style>
+  #group-buttons > button {
+    border-color: black;
+    border-width: 2px;
+    padding: 5px 10px;
+  }
+
+  #group-buttons > button:hover {
+    background-color: chocolate;
+  }
+
+  #group-buttons > .active {
+    background-color: lightblue;
+  }
+</style>
