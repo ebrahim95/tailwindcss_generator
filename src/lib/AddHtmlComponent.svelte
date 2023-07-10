@@ -1,8 +1,8 @@
 <script lang="ts">
     import { tag_to_add } from "./stores";
     const tag_collection = [
-        "<div></div>",
-        "<button class='btn'>hello</button>",
+        "<div class=''></div>",
+        "<button class=''>hello</button>",
     ];
     let index_select = "";
 </script>
