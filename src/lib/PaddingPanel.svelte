@@ -60,7 +60,6 @@
 </script>
 
 <div id="padding-control">
-  <h2>Padding</h2>
   <div id="group-buttons" class="grid grid-cols-2 grid-rows-2 my-2 w-24">
     <button
       class={`rounded-tl-lg ${pt.toggle ? "active" : ""}`}
@@ -102,20 +101,6 @@
       padding.update(() => padding_tailwind);
     }}
   />
-
-  <!-- step="1" -->
-  <!-- <div class="w-full flex justify-between text-xs px-2">
-         <span>|</span>
-         <span>|</span>
-         <span>|</span>
-         <span>|</span>
-         <span>|</span>
-         <span>|</span>
-         <span>|</span>
-         <span>|</span>
-         <span>|</span>
-         <span>|</span>
-         </div> -->
 
   <br />
 </div>
