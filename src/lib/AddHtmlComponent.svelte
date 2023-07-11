@@ -1,9 +1,6 @@
 <script lang="ts">
     import { tag_to_add } from "./stores";
-    const tag_collection = [
-        "<div class=''></div>",
-        "<button class=''>hello</button>",
-    ];
+    const tag_collection = ["div", "button"];
     let index_select = "";
 </script>
 
@@ -14,7 +11,7 @@
         id="addHtmlComponent"
         class="select select-bordered"
     >
-        <option value="0"> Div</option>
+        <option value="0">Div</option>
         <option value="1">Button</option>
     </select>
     <button
