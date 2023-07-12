@@ -12,7 +12,7 @@
 </script>
 
 <div id="bg-color-picker">
-    <h2>Color Picker</h2>
+    <label for="edit-component">Color Picker</label>
 
     <select
         bind:value={id_change}
