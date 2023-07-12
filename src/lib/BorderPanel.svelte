@@ -28,15 +28,13 @@
     toggle: false,
   };
 
-  $: border_collection_mapped = border_width.update(() => {
+  $: border_width.update(() => {
     return border_width_collection
       .map((value) => value.replace("-1", ""))
       .join(" ");
   });
 
-  $: border_radius_update = border_radius.update(
-    () => border_radius_collection
-  );
+  $: border_radius.update(() => border_radius_collection);
 
   $: if (bt.toggle && bb.toggle && bl.toggle && br.toggle) {
     //border_width_collection[4] = "border-" + width;
@@ -78,6 +76,32 @@
 <div class="my-1" id="border-control">
   <!--- Map a new array, by removing the -1 -->
   <div>
+    <div id="group-buttons" class="grid grid-cols-2 grid-rows-2 my-2 w-24">
+      <button
+        class={`rounded-tl-lg ${bt.toggle ? "active" : ""}`}
+        on:click={() => (bt.toggle = !bt.toggle)}
+      >
+        {bt.value}</button
+      >
+      <button
+        class={`rounded-tr-lg ${bb.toggle ? "active" : ""}`}
+        on:click={() => (bb.toggle = !bb.toggle)}
+      >
+        {bb.value}</button
+      >
+      <button
+        class={`rounded-bl-lg ${bl.toggle ? "active" : ""}`}
+        on:click={() => (bl.toggle = !bl.toggle)}
+      >
+        {bl.value}</button
+      >
+      <button
+        class={`rounded-br-lg ${br.toggle ? "active" : ""}`}
+        on:click={() => (br.toggle = !br.toggle)}
+      >
+        {br.value}</button
+      >
+    </div>
     <label class="label" for="border-width">Width</label>
     <select class="select select-bordered" bind:value={width} id="border-width">
       <option value="0">0</option>
@@ -103,32 +127,6 @@
     </select>
   </div>
 
-  <div id="group-buttons" class="grid grid-cols-2 grid-rows-2 my-2 w-24">
-    <button
-      class={`rounded-tl-lg ${bt.toggle ? "active" : ""}`}
-      on:click={() => (bt.toggle = !bt.toggle)}
-    >
-      {bt.value}</button
-    >
-    <button
-      class={`rounded-tr-lg ${bb.toggle ? "active" : ""}`}
-      on:click={() => (bb.toggle = !bb.toggle)}
-    >
-      {bb.value}</button
-    >
-    <button
-      class={`rounded-bl-lg ${bl.toggle ? "active" : ""}`}
-      on:click={() => (bl.toggle = !bl.toggle)}
-    >
-      {bl.value}</button
-    >
-    <button
-      class={`rounded-br-lg ${br.toggle ? "active" : ""}`}
-      on:click={() => (br.toggle = !br.toggle)}
-    >
-      {br.value}</button
-    >
-  </div>
   <br />
 </div>
 
