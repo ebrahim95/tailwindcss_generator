@@ -10,6 +10,9 @@ const config = {
     {
       pattern: /p[a-z]-\d+/
     },
+    {
+      pattern: /ring-[a-z]+-\d+/
+    },
 
     {
       pattern: /border-[a-z]+-\d+/
