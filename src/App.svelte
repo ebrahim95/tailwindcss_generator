@@ -6,6 +6,7 @@
     import ColorPicker from "./lib/ColorPicker.svelte";
     import BorderPanel from "./lib/BorderPanel.svelte";
     import AddHtmlComponent from "./lib/AddHtmlComponent.svelte";
+    import RingPanel from "./lib/RingPanel.svelte";
 
     let show_code: boolean = true;
     let panel_toggle: string = "border";
@@ -43,11 +44,14 @@
         >
             <option value="border">Border</option>
             <option value="padding">Padding</option>
+            <option value="ring">Ring</option>
         </select>
         {#if panel_toggle === "border"}
             <BorderPanel />
-        {:else}
+        {:else if panel_toggle === "padding"}
             <PaddingPanel />
+        {:else}
+            <RingPanel />
         {/if}
     </section>
     <DrawingComponent {show_code} />
