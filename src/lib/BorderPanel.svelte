@@ -105,7 +105,7 @@
             >
         </div>
         <div id="border-width-section" class="my-1 join">
-            <label class="label px-3 bg-slate-100 join-item" for="border-width"
+            <label class="label px-3 bg-base-200 join-item" for="border-width"
                 >Width</label
             >
             <select
@@ -122,21 +122,21 @@
         </div>
         <br />
         <div class="join my-1" id="border-radius-section">
-            <label class="label px-3 bg-slate-100 join-item" for="border-radius"
+            <label class="label px-3 bg-base-200 join-item" for="border-radius"
                 >Radius</label
             >
             <select
                 class="select select-bordered join-item"
                 bind:value={border_radius_collection}
             >
-                <option value="rounded-sm">"sm"</option>
-                <option value="rounded">"Default"</option>
-                <option value="rounded-md">"md"</option>
-                <option value="rounded-lg">"lg"</option>
-                <option value="rounded-xl">"xl"</option>
-                <option value="rounded-2xl">"2xl"</option>
-                <option value="rounded-3xl">"3xl"</option>
-                <option value="rounded-full">"full"</option>
+                <option value="rounded-sm">sm</option>
+                <option value="rounded">Default</option>
+                <option value="rounded-md">md</option>
+                <option value="rounded-lg">lg</option>
+                <option value="rounded-xl">xl</option>
+                <option value="rounded-2xl">2xl</option>
+                <option value="rounded-3xl">3xl</option>
+                <option value="rounded-full">full</option>
             </select>
         </div>
     </div>
