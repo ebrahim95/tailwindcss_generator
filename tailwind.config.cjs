@@ -24,7 +24,7 @@ const config = {
   ],
   plugins: [require("daisyui")],
   daisyui: {
-    themes: ["fantasy"]
+    themes: ["retro"]
   }
 };
 
