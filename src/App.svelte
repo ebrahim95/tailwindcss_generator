@@ -1,11 +1,11 @@
 <script lang="ts">
     // import svelteLogo from "./assets/svelte.svg";
     // import viteLogo from "/vite.svg";
-    import PaddingPanel from "./lib/PaddingPanel.svelte";
-    import DrawingComponent from "./lib/DrawingComponent.svelte";
-    import ColorPicker from "./lib/ColorPicker.svelte";
-    import BorderPanel from "./lib/BorderPanel.svelte";
     import AddHtmlComponent from "./lib/AddHtmlComponent.svelte";
+    import BorderPanel from "./lib/BorderPanel.svelte";
+    import ColorPicker from "./lib/ColorPicker.svelte";
+    import DrawingComponent from "./lib/DrawingComponent.svelte";
+    import PaddingPanel from "./lib/PaddingPanel.svelte";
     import RingPanel from "./lib/RingPanel.svelte";
 
     let show_code: boolean = true;
@@ -28,14 +28,13 @@
     <section
         class="w-3/12 flex flex-col items-start border-black border-r-4 p-4"
     >
-        <h1>Tailwind CSS Component Generator</h1>
         <button on:click={() => (show_code = !show_code)} class="btn"
             >Show Code</button
         >
 
         <button />
 
-        <AddHtmlComponent />
+        <!-- <AddHtmlComponent /> -->
         <ColorPicker />
         <select
             bind:value={panel_toggle}
@@ -46,6 +45,7 @@
             <option value="padding">Padding</option>
             <option value="ring">Ring</option>
         </select>
+
         {#if panel_toggle === "border"}
             <BorderPanel />
         {:else if panel_toggle === "padding"}
@@ -53,21 +53,26 @@
         {:else}
             <RingPanel />
         {/if}
+
+        <span class="border-4 border-base-200 p-2">
+            <h1>Tailwind CSS Style Generator</h1>
+        </span>
     </section>
     <DrawingComponent {show_code} />
 </main>
 
-<style>
-    /* .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-    }
-    .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-    }
-    .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-    } */
-</style>
+<!-- <style>
+     .logo {
+     height: 6em;
+     padding: 1.5em;
+     will-change: filter;
+     transition: filter 300ms;
+     }
+
+     .logo:hover {
+     filter: drop-shadow(0 0 2em #646cffaa);
+     }
+     .logo.svelte:hover {
+     filter: drop-shadow(0 0 2em #ff3e00aa);
+     }
+     </style> -->
