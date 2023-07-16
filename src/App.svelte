@@ -46,15 +46,19 @@
             <option value="ring">Ring</option>
         </select>
 
-        {#if panel_toggle === "border"}
-            <BorderPanel />
-        {:else if panel_toggle === "padding"}
-            <PaddingPanel />
-        {:else}
-            <RingPanel />
-        {/if}
+    <div class={`${panel_toggle === "border" ? "" : "hidden"}`}>
+      <BorderPanel />
+    </div>
+    <div class={`${panel_toggle === "padding" ? "" : "hidden"}`}>
+      <PaddingPanel />
+    </div>
+    <div class={`${panel_toggle === "ring" ? "" : "hidden"}`}>
+      <RingPanel />
+    </div>
+    <div class={`${panel_toggle === "outline" ? "" : "hidden"}`}>
+      <OutlinePanel />
+    </div>
 
-        <span class="border-4 border-base-200 p-2">
             <h1>Tailwind CSS Style Generator</h1>
         </span>
     </section>
