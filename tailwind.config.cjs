@@ -21,6 +21,9 @@ const config = {
     {
       pattern: /border-[a-z]/
     },
+    {
+      pattern: /outline-[a-z]+-\d+/
+    },
   ],
   plugins: [require("daisyui")],
   daisyui: {
