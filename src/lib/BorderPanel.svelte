@@ -1,11 +1,13 @@
 <script lang="ts">
-    import { border_width, border_radius } from "./stores";
+    import { border_style, border_width, border_radius } from "./stores";
 
     interface border_direction {
         value: number;
         toggle: boolean;
     }
     let width = "0";
+    let style = "";
+
     let border_width_collection = ["", "", "", ""];
     let border_radius_collection = "";
 
@@ -37,6 +39,8 @@
     });
 
     $: border_radius.update(() => border_radius_collection);
+
+    $: border_style.update(() => $border_style.set("style", style));
 
     $: if (bt.toggle && bb.toggle && bl.toggle && br.toggle) {
         //border_width_collection[4] = "border-" + width;
@@ -138,6 +142,21 @@
             <option value="rounded-2xl">2xl</option>
             <option value="rounded-3xl">3xl</option>
             <option value="rounded-full">full</option>
+        </select>
+    </div>
+    <div id="border-style-section" class="my-1 join">
+        <label class="label px-3 bg-base-200 join-item" for="border-style"
+            >Style</label
+        >
+        <select
+            class="select select-bordered join-item"
+            bind:value={style}
+            id="border-style"
+        >
+            <option value="border-solid">Solid</option>
+            <option value="border-dashed">Dashed</option>
+            <option value="border-dotted">Dotted</option>
+            <option value="border-double">Double</option>
         </select>
     </div>
 </div>
