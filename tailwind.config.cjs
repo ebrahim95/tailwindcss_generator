@@ -23,7 +23,10 @@ const config = {
     },
     {
       pattern: /outline-[a-z]+-\d+/
+    }, {
+      pattern: /bg-[a-z]+-\d+/
     },
+
   ],
   plugins: [require("daisyui")],
   daisyui: {
