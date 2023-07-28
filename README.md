@@ -1,8 +1,9 @@
 # Tailwind CSS Generator
 
 ## About 
-Tailwind CSS Generator is a simple application <br/>
-that I am building so that I can Tailwind CSS better.
+Tailwind CSS Generator is a simple SAAS application <br/>
+that I am building. I am building it so that I can <br/>
+understand Tailwind better and improve my programming skills. 
 
 ## Stack Used 
 The stack is simple 
@@ -13,8 +14,8 @@ The stack is simple
 </ul>
 
 ### Why use Svelte?
-1. Wanted to understand a different way to develop application<br/>
+1. Wanted to understand a different way to develop an application,<br/>
 so that I can improve my programming skills.
-2. Svelte it also a fast framework, as it is lightweight.
+2. Svelte is also a fast framework, as it is lightweight.
 
 
