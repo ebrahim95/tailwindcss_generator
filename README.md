@@ -18,10 +18,3 @@ so that I can improve my programming skills.
 2. Svelte it also a fast framework, as it is lightweight.
 
 
-
-```ts
-// store.ts
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
-```
