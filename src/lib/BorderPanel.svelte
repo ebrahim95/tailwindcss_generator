@@ -159,6 +159,32 @@
             <option value="border-double">Double</option>
         </select>
     </div>
+  <div id="group-buttons" class="grid grid-cols-2 grid-rows-3 my-1 w-28">
+    <button
+      class={`col-span-2  rounded-t-lg ${bt.toggle ? "active" : ""}`}
+      on:click={() => (bt.toggle = !bt.toggle)}
+    >
+      T: {bt.value}</button
+    >
+    <button
+      class={`${bl.toggle ? "active" : ""}`}
+      on:click={() => (bl.toggle = !bl.toggle)}
+    >
+      L: {bl.value}</button
+    >
+    <button
+      class={`${br.toggle ? "active" : ""}`}
+      on:click={() => (br.toggle = !br.toggle)}
+    >
+      R: {br.value}</button
+    >
+    <button
+      class={`col-span-2 rounded-b-lg ${bb.toggle ? "active" : ""}`}
+      on:click={() => (bb.toggle = !bb.toggle)}
+    >
+      B: {bb.value}</button
+    >
+  </div>
 </div>
 
 <style>
