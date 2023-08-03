@@ -13,7 +13,9 @@ const config = {
     {
       pattern: /ring-[a-z]+-\d+/
     },
-
+    {
+      pattern: /border-\d+/
+    },
     {
       pattern: /border-[a-z]+-\d+/
     },
