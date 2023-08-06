@@ -44,38 +44,70 @@
 
   $: if (bt.toggle && bb.toggle && bl.toggle && br.toggle) {
     //border_width_collection[4] = "border-" + width;
-
-    border_width_collection[0] = "border-t-" + width;
-    border_width_collection[1] = "border-b-" + width;
-    border_width_collection[2] = "border-r-" + width;
-    border_width_collection[3] = "border-l-" + width;
+    border_style.update(() => {
+      $border_style.set("border-y", "");
+      $border_style.set("border-x", "");
+      return $border_style.set("border", "border" + width);
+    });
+    width = width === "" ? "1" : width.slice(1);
     bt.value = Number(width);
     bb.value = Number(width);
     bl.value = Number(width);
     br.value = Number(width);
   } else if (bt.toggle && bb.toggle) {
-    border_width_collection[0] = "border-t-" + width;
-    border_width_collection[1] = "border-b-" + width;
+    border_style.update(() => {
+      $border_style.set("border", "");
+      return $border_style.set("border-y", "border-y" + width);
+    });
 
+    width = width === "" ? "1" : width.slice(1);
     bt.value = Number(width);
     bb.value = Number(width);
   } else if (br.toggle && bl.toggle) {
-    border_width_collection[2] = "border-r-" + width;
-    border_width_collection[3] = "border-l-" + width;
+    border_style.update(() => {
+      $border_style.set("border", "");
+      return $border_style.set("border-x", "border-x" + width);
+    });
+
+    width = width === "" ? "1" : width.slice(1);
     br.value = Number(width);
     bl.value = Number(width);
   } else if (bt.toggle) {
-    border_width_collection[0] = "border-t-" + width;
+    border_style.update(() => {
+      $border_style.set("border", "");
+      $border_style.set("border-y", "");
+      return $border_style.set("border-t", "border-t" + width);
+    });
+
+    width = width === "" ? "1" : width.slice(1);
     bt.value = Number(width);
   } else if (bb.toggle) {
-    border_width_collection[1] = "border-b-" + width;
+    border_style.update(() => {
+      $border_style.set("border", "");
+      $border_style.set("border-y", "");
+      return $border_style.set("border-b", "border-b" + width);
+    });
+
+    width = width === "" ? "1" : width.slice(1);
     bb.value = Number(width);
-  } else if (br.toggle) {
-    border_width_collection[2] = "border-r-" + width;
-    br.value = Number(width);
   } else if (bl.toggle) {
-    border_width_collection[3] = "border-l-" + width;
+    border_style.update(() => {
+      $border_style.set("border", "");
+      $border_style.set("border-x", "");
+      return $border_style.set("border-l", "border-l" + width);
+    });
+
+    width = width === "" ? "1" : width.slice(1);
     bl.value = Number(width);
+  } else if (br.toggle) {
+    border_style.update(() => {
+      $border_style.set("border", "");
+      $border_style.set("border-x", "");
+      return $border_style.set("border-r", "border-r" + width);
+    });
+
+    width = width === "" ? "1" : width.slice(1);
+    br.value = Number(width);
   }
 </script>
 
@@ -86,8 +118,8 @@
       class={`col-span-2  rounded-t-lg ${bt.toggle ? "active" : ""}`}
       on:click={() => (bt.toggle = !bt.toggle)}
     >
-      {bt.value}</button
-    >
+      {bt.value}
+    </button>
     <button
       class={`${bl.toggle ? "active" : ""}`}
       on:click={() => (bl.toggle = !bl.toggle)}
