@@ -10,8 +10,8 @@
   }
   let id_change = "bg";
   let color_shade = "500";
+ // TODO need to seperate color panel
   //TODO you need change the state, might also have to add some positioning.
-  //TODO Add Shades
 </script>
 
 <div id="color-picker" class="mb-3">
