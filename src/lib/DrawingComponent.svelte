@@ -1,5 +1,4 @@
 <script lang="ts">
-    import { onMount } from "svelte";
     export let show_code: boolean;
     //TODO need to create Ids so that I can delete the component more easily
     //TODO need to get a class and keep updating that specific class
