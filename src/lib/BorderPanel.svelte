@@ -11,7 +11,11 @@
   let border_width_collection = ["", "", "", ""];
   let border_radius_collection = "";
 
+  let toggle_sides = false;
+
   //TODO maybe add a map structure - to reduce the code
+  // I need to add seperate selection catergories so that it will be easier to set the border properties
+  // add data attributes
 
   let bt: border_direction = {
     value: 0,
@@ -139,6 +143,9 @@
       {bb.value}</button
     >
   </div>
+  <!-- 
+   Width Selector
+-->
   <div id="border-width-section" class="my-1 join">
     <label class="label px-3 bg-base-200 join-item" for="border-width"
       >Width</label
@@ -148,11 +155,11 @@
       bind:value={width}
       id="border-width"
     >
-      <option value="0">0</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="4">4</option>
-      <option value="8">8</option>
+      <option value="-0">0</option>
+      <option value="">1</option>
+      <option value="-2">2</option>
+      <option value="-4">4</option>
+      <option value="-8">8</option>
     </select>
   </div>
   <br />
