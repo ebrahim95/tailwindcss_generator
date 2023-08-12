@@ -10,7 +10,8 @@
   }
   let id_change = "bg";
   let color_shade = "500";
- // TODO need to seperate color panel
+  //TODO add Aria role
+  //TODO need to seperate color panel
   //TODO you need change the state, might also have to add some positioning.
 </script>
 
@@ -26,8 +27,8 @@
       <option value="bg">Background</option>
       <option value="border">Border</option>
       <option value="ring">Ring</option>
-
       <option value="outline">Outline</option>
+      <option value="shadow">Shadow</option>
     </select>
     <select
       bind:value={color_shade}
@@ -51,6 +52,8 @@
     on:click={handle_color}
     id="color-panel"
     class="grid grid-cols-5"
+    role="menu"
+    tabindex="0"
   >
     <button id={`slate-${color_shade}`} class={`bg-slate-${color_shade}`} />
     <button id={`gray-${color_shade}`} class={`bg-gray-${color_shade}`} />
