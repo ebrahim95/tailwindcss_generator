@@ -9,7 +9,7 @@
 </script>
 
 <div>
-  <section id="ring-width-panel" class="join my-2">
+  <section id="ring-width-panel" class="join my-1">
     <label class="label px-3 bg-base-200 join-item" for="ring-width"
       >Width
     </label>
@@ -28,7 +28,7 @@
       <option value="ring-8">Ring 8</option>
     </select>
   </section>
-  <section id="ring-offset-panel" class="join my-2">
+  <section id="ring-offset-panel" class="join my-1">
     <label class="label px-3 bg-base-200 join-item" for="ring-offset"
       >Offset
     </label>
