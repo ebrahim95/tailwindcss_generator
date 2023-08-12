@@ -13,17 +13,23 @@
         // editable_component,
         outline_property,
         ring_property,
+        effects_property,
     } from "./stores";
 
     let bg_color = "";
     let border_color = "border-black";
     let ring_color = "";
     let outline_color = "";
+    let shadow_color = "";
 
     $: outline_property_array = Array.from($outline_property.values()).join(
         " "
     );
+
     $: ring_property_array = Array.from($ring_property.values()).join(" ");
+    $: effects_property_array = Array.from($effects_property.values()).join(
+        " "
+    );
 
     $: if ($color.includes("bg")) {
         bg_color = $color;
@@ -31,8 +37,10 @@
         border_color = $color;
     } else if ($color.includes("ring")) {
         ring_color = $color;
-    } else {
+    } else if ($color.includes("outline")) {
         outline_color = $color;
+    } else {
+        shadow_color = $color;
     }
 
     //NOTE need to rework the part
@@ -59,7 +67,7 @@
             class={`my-auto w-[400px] h-[400px]  ${$padding} ${bg_color}  ${$border_width} ${border_color} ${$border_radius} ${$border_style.get(
                 "style"
             )}
-      ${ring_property_array} ${ring_color}  ${outline_property_array} ${outline_color}`}
+      ${ring_property_array} ${ring_color}  ${outline_property_array} ${outline_color} ${effects_property_array} ${shadow_color}`}
         />
     {:else}
         <div class="w-[600px] mockup-code">
