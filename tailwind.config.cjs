@@ -34,7 +34,9 @@ const config = {
     {
       pattern: /shadow-[a-z]+-\d+/
     },
-
+    {
+      pattern: /brightness-\d+/
+    },
   ],
   plugins: [require("daisyui")],
   daisyui: {
