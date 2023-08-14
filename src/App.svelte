@@ -6,6 +6,7 @@
   import ColorPicker from "./lib/ColorPicker.svelte";
   import DrawingComponent from "./lib/DrawingComponent.svelte";
   import EffectsPanel from "./lib/EffectsPanel.svelte";
+  import FilterPanel from "./lib/FilterPanel.svelte";
   import OutlinePanel from "./lib/OutlinePanel.svelte";
   import PaddingPanel from "./lib/PaddingPanel.svelte";
   import RingPanel from "./lib/RingPanel.svelte";
@@ -46,6 +47,7 @@
       <option value="ring">Ring</option>
       <option value="outline">Outline</option>
       <option value="effects">Effects</option>
+      <option value="filter">Filter</option>
     </select>
 
     <div class={`${panel_toggle === "border" ? "" : "hidden"}`}>
@@ -63,7 +65,9 @@
     <div class={`${panel_toggle === "effects" ? "" : "hidden"}`}>
       <EffectsPanel />
     </div>
-
+    <div class={`${panel_toggle === "filter" ? "" : "hidden"}`}>
+      <FilterPanel />
+    </div>
     <span class="border-4 border-base-200 p-2 justify-self-end">
       <h1>Tailwind CSS Style Generator</h1>
     </span>
