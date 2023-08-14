@@ -14,6 +14,7 @@
     outline_property,
     ring_property,
     effects_property,
+    filter_property,
   } from "./stores";
 
   let bg_color = "";
@@ -23,9 +24,9 @@
   let shadow_color = "";
 
   $: outline_property_array = Array.from($outline_property.values()).join(" ");
-
   $: ring_property_array = Array.from($ring_property.values()).join(" ");
   $: effects_property_array = Array.from($effects_property.values()).join(" ");
+  $: filter_property_array = Array.from($filter_property.values()).join(" ");
 
   $: if ($color.includes("bg")) {
     bg_color = $color;
@@ -63,7 +64,7 @@
       class={`my-auto w-[400px] h-[400px]  ${$padding} ${bg_color}  ${$border_width} ${border_color} ${$border_radius} ${$border_style.get(
         "style"
       )}
-      ${ring_property_array} ${ring_color}  ${outline_property_array} ${outline_color} ${effects_property_array} ${shadow_color}`}
+      ${ring_property_array} ${ring_color}  ${outline_property_array} ${outline_color} ${effects_property_array} ${shadow_color} ${filter_property_array}`}
     />
   {:else}
     <div class="w-[600px] mockup-code">
@@ -73,7 +74,7 @@
       {`my-auto w-[400px] h-[400px]  ${$padding} ${bg_color}  ${$border_width} ${border_color} ${$border_radius} ${$border_style.get(
             "style"
           )}
-      ${ring_property_array} ${ring_color}  ${outline_property_array} ${outline_color}`}
+      ${ring_property_array} ${ring_color}  ${outline_property_array} ${outline_color} ${effects_property_array} ${shadow_color} ${filter_property_array}`}
         </code>
       </pre>
     </div>
