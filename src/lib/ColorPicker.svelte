@@ -27,6 +27,7 @@
       <option value="bg">Background</option>
       <option value="border">Border</option>
       <option value="ring">Ring</option>
+      <option value="ring-offset">Ring Offset</option>
       <option value="outline">Outline</option>
       <option value="shadow">Shadow</option>
     </select>
