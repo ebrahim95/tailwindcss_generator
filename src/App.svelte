@@ -28,7 +28,7 @@
   Second if a simple component is made, display it's properties on the side
 -->
 <main class="flex flex-row w-12/12">
-  <section class="w-3/12 flex flex-col items-start border-black border-r-4 p-4">
+  <section class="w-3/12 flex flex-col items-start border-black p-4">
     <button on:click={() => (show_code = !show_code)} class="btn"
       >Show {show_code ? "Code" : "Picture"}
     </button>
@@ -68,7 +68,7 @@
     <div class={`${panel_toggle === "filter" ? "" : "hidden"}`}>
       <FilterPanel />
     </div>
-    <span class="border-4 border-base-200 p-2 justify-self-end">
+    <span class="border-4 border-base-200 p-2">
       <h1>Tailwind CSS Style Generator</h1>
     </span>
   </section>
