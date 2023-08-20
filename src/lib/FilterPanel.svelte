@@ -7,6 +7,12 @@
   let grayscale_toggle = false;
   $: grayscale_value = grayscale_toggle === true ? "grayscale" : "grayscale-0";
 
+  let invert_toggle = false;
+  $: invert_value = invert_toggle === true ? "invert" : "invert-0";
+
+  let sepia_toggle = false;
+  $: sepia_value = sepia_toggle === true ? "sepia" : "sepia-0";
+
   let contrast_value: number = 3;
   let contrast_value_array: Array<string> = [
     "contrast-0",
@@ -32,6 +38,24 @@
     "brightness-150",
     "brightness-200",
   ];
+  let hue_value: number = 0;
+  let hue_value_array: Array<string> = [
+    "hue-rotate-0",
+    "hue-rotate-15",
+    "hue-rotate-30",
+    "hue-rotate-60",
+    "hue-rotate-90",
+    "hue-rotate-180",
+  ];
+
+  let saturate_value: number = 2;
+  let saturate_value_array: Array<string> = [
+    "saturate-0",
+    "saturate-50",
+    "saturate-100",
+    "saturate-150",
+    "saturate-200",
+  ];
 </script>
 
 <section>
@@ -53,9 +77,9 @@
       <option value="blur-3xl">3xl</option>
     </select>
   </div>
-  <div id="brightness-selector join">
+  <div id="brightness-selector">
     <label class="label" for="brightness-range"
-      >Brightness Selector: {brightness_value_array[brightness_value].split(
+      >Brightness: {brightness_value_array[brightness_value].split(
         "-"
       )[1]}</label
     >
@@ -79,9 +103,7 @@
 
   <div id="contrast-selector">
     <label class="label" for="contrast-range"
-      >Contrast Selector: {contrast_value_array[contrast_value].split(
-        "-"
-      )[1]}</label
+      >Contrast: {contrast_value_array[contrast_value].split("-")[1]}</label
     >
 
     <input
@@ -99,6 +121,44 @@
     />
   </div>
 
+  <div id="hue-selector">
+    <label class="label" for="hue-range"
+      >Hue: {hue_value_array[hue_value].split("-")[2]}</label
+    >
+
+    <input
+      type="range"
+      class="range mb-2"
+      id="hue-range"
+      min="0"
+      max="5"
+      bind:value={hue_value}
+      on:input={() => {
+        filter_property.update(() =>
+          $filter_property.set("hue", hue_value_array[hue_value])
+        );
+      }}
+    />
+  </div>
+  <div id="saturate-selector">
+    <label class="label" for="saturate-range"
+      >Saturate: {saturate_value_array[saturate_value].split("-")[1]}</label
+    >
+
+    <input
+      type="range"
+      class="range mb-2"
+      id="saturate-range"
+      min="0"
+      max="5"
+      bind:value={saturate_value}
+      on:input={() => {
+        filter_property.update(() =>
+          $filter_property.set("saturate", saturate_value_array[saturate_value])
+        );
+      }}
+    />
+  </div>
   <div class="join my-1" id="drop-shadow">
     <label class="label px-3 bg-base-200 join-item" for="drop-shadow"
       >Box Shadow</label
@@ -136,4 +196,37 @@
         )}
     />
   </div>
+  <br />
+  <div class="join my-1" id="invert-toggle">
+    <label class="label px-3 bg-base-200 join-item" for="invert-toggle"
+      >Invert</label
+    >
+    <input
+      bind:checked={invert_toggle}
+      class="toggle toggle-lg p-5 join-item"
+      type="checkbox"
+      on:change={() =>
+        filter_property.update(() =>
+          $filter_property.set("invert", invert_value)
+        )}
+    />
+  </div>
+  <br />
+  <div class="join my-1" id="sepia-toggle">
+    <label class="label px-3 bg-base-200 join-item" for="sepia-toggle"
+      >Sepia</label
+    >
+    <input
+      bind:checked={sepia_toggle}
+      class="toggle toggle-lg p-5 join-item"
+      type="checkbox"
+      on:change={() =>
+        filter_property.update(() =>
+          $filter_property.set("sepia", sepia_value)
+        )}
+    />
+  </div>
 </section>
+
+<style>
+</style>
