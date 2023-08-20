@@ -14,6 +14,9 @@ const config = {
     {
       pattern: /ring-[a-z]+-\d+/
     },
+    {
+      pattern: /ring-offset-[a-z]+-\d+/
+    },
     //Border Colors and Width
     {
       pattern: /border-[a-z]+-\d+/
@@ -33,6 +36,9 @@ const config = {
     // Shadow Colors
     {
       pattern: /shadow-[a-z]+-\d+/
+    },
+    {
+      pattern: /hue-rotate-\d+/
     },
     {
       pattern: /brightness-\d+/
