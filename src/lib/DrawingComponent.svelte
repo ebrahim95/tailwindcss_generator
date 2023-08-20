@@ -20,6 +20,7 @@
   let bg_color = "";
   let border_color = "border-black";
   let ring_color = "";
+  let ring_offset_color = "";
   let outline_color = "";
   let shadow_color = "";
 
@@ -36,8 +37,10 @@
     ring_color = $color;
   } else if ($color.includes("outline")) {
     outline_color = $color;
-  } else {
+  } else if ($color.includes("shadow")) {
     shadow_color = $color;
+  } else {
+    ring_offset_color = $color;
   }
 
   //NOTE need to rework the part
@@ -64,7 +67,7 @@
       class={`my-auto w-[400px] h-[400px]  ${$padding} ${bg_color}  ${$border_width} ${border_color} ${$border_radius} ${$border_style.get(
         "style"
       )}
-      ${ring_property_array} ${ring_color}  ${outline_property_array} ${outline_color} ${effects_property_array} ${shadow_color} ${filter_property_array}`}
+      ${ring_property_array}  ${ring_color} ${ring_offset_color}  ${outline_property_array} ${outline_color} ${effects_property_array} ${shadow_color} ${filter_property_array}`}
     />
   {:else}
     <div class="w-[600px] mockup-code">
@@ -74,7 +77,7 @@
       {`my-auto w-[400px] h-[400px]  ${$padding} ${bg_color}  ${$border_width} ${border_color} ${$border_radius} ${$border_style.get(
             "style"
           )}
-      ${ring_property_array} ${ring_color}  ${outline_property_array} ${outline_color} ${effects_property_array} ${shadow_color} ${filter_property_array}`}
+      ${ring_property_array} ${ring_color}  ${ring_offset_color}  ${outline_property_array} ${outline_color} ${effects_property_array} ${shadow_color} ${filter_property_array}`}
         </code>
       </pre>
     </div>
