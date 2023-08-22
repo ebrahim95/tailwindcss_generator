@@ -150,7 +150,7 @@
       class="range mb-2"
       id="saturate-range"
       min="0"
-      max="5"
+      max="4"
       bind:value={saturate_value}
       on:input={() => {
         filter_property.update(() =>
