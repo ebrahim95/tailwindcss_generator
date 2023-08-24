@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   export let show_code: boolean;
   //TODO need to create Ids so that I can delete the component more easily
   //TODO need to get a class and keep updating that specific class
@@ -14,17 +13,21 @@
     // editable_component,
     outline_property,
     ring_property,
+    effects_property,
+    filter_property,
   } from "./stores";
 
   let bg_color = "";
   let border_color = "border-black";
   let ring_color = "";
+  let ring_offset_color = "";
   let outline_color = "";
+  let shadow_color = "";
 
   $: outline_property_array = Array.from($outline_property.values()).join(" ");
   $: ring_property_array = Array.from($ring_property.values()).join(" ");
-
-  $: border_property_array = Array.from($border_style.values()).join(" ");
+  $: effects_property_array = Array.from($effects_property.values()).join(" ");
+  $: filter_property_array = Array.from($filter_property.values()).join(" ");
 
   $: if ($color.includes("bg")) {
     bg_color = $color;
@@ -32,8 +35,12 @@
     border_color = $color;
   } else if ($color.includes("ring")) {
     ring_color = $color;
-  } else {
+  } else if ($color.includes("outline")) {
     outline_color = $color;
+  } else if ($color.includes("shadow")) {
+    shadow_color = $color;
+  } else {
+    ring_offset_color = $color;
   }
 
   //NOTE need to rework the part
@@ -57,19 +64,20 @@
   {#if show_code}
     <div
       id="first"
-      class={`my-auto w-[400px] h-[400px]  ${$padding} ${bg_color}  
-      ${border_color} ${$border_radius} ${border_property_array}
-      ${ring_property_array} ${ring_color}  ${outline_property_array} ${outline_color}`}
+      class={`my-auto w-[400px] h-[400px]  ${$padding} ${bg_color}  ${$border_width} ${border_color} ${$border_radius} ${$border_style.get(
+        "style"
+      )}
+      ${ring_property_array}  ${ring_color} ${ring_offset_color}  ${outline_property_array} ${outline_color} ${effects_property_array} ${shadow_color} ${filter_property_array}`}
     />
   {:else}
     <div class="w-[600px] mockup-code">
       <pre data-prefix="~">
         <code>
 
-      {`my-auto w-[400px] h-[400px] ${$padding} ${bg_color} 
-      ${border_property_array} ${border_color} ${$border_radius} ${ring_property_array} ${ring_color}
-${outline_property_array} ${outline_color}`}
-
+      {`my-auto w-[400px] h-[400px]  ${$padding} ${bg_color}  ${$border_width} ${border_color} ${$border_radius} ${$border_style.get(
+            "style"
+          )}
+      ${ring_property_array} ${ring_color}  ${ring_offset_color}  ${outline_property_array} ${outline_color} ${effects_property_array} ${shadow_color} ${filter_property_array}`}
         </code>
       </pre>
     </div>

@@ -6,10 +6,11 @@ const config = {
     extend: {},
   },
   safelist: [
-
+    // Padding Width
     {
       pattern: /p[a-z]-\d+/
     },
+    // Ring Colors
     {
       pattern: /ring-[a-z]+-\d+/
     },
@@ -17,18 +18,34 @@ const config = {
       pattern: /border-\d+/
     },
     {
+      pattern: /ring-offset-[a-z]+-\d+/
+    },
+    //Border Colors and Width
+    {
       pattern: /border-[a-z]+-\d+/
     },
-
+    // Border Radius, Width 
     {
       pattern: /border-[a-z]/
     },
+    // Outline Colors
     {
       pattern: /outline-[a-z]+-\d+/
-    }, {
+    },
+    // Background Colors
+    {
       pattern: /bg-[a-z]+-\d+/
     },
-
+    // Shadow Colors
+    {
+      pattern: /shadow-[a-z]+-\d+/
+    },
+    {
+      pattern: /hue-rotate-\d+/
+    },
+    {
+      pattern: /brightness-\d+/
+    },
   ],
   plugins: [require("daisyui")],
   daisyui: {

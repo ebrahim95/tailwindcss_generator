@@ -86,22 +86,21 @@
       {pr.value}</button
     >
   </div>
-
-  <label for="padding-range">Padding Selector</label>
-
-  <input
-    class="range mb-2"
-    id="padding-range"
-    type="range"
-    min="0"
-    max="10"
-    step="0.5"
-    bind:value={padding_value}
-    on:input={() => {
-      padding.update(() => padding_tailwind);
-    }}
-  />
-
+  <div id="padding-selector">
+    <label for="padding-range">Padding Selector</label>
+    <input
+      class="range mb-2"
+      id="padding-range"
+      type="range"
+      min="0"
+      max="10"
+      step="0.5"
+      bind:value={padding_value}
+      on:input={() => {
+        padding.update(() => padding_tailwind);
+      }}
+    />
+  </div>
   <br />
 </div>
 
