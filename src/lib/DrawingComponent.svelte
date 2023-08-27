@@ -6,7 +6,6 @@
   import {
     padding,
     border_width,
-    border_radius,
     border_style,
     //  tag_to_add,
     color,
@@ -28,6 +27,7 @@
   $: ring_property_array = Array.from($ring_property.values()).join(" ");
   $: effects_property_array = Array.from($effects_property.values()).join(" ");
   $: filter_property_array = Array.from($filter_property.values()).join(" ");
+  $: border_property_array = Array.from($border_style.values()).join(" ");
 
   $: if ($color.includes("bg")) {
     bg_color = $color;
@@ -64,9 +64,7 @@
   {#if show_code}
     <div
       id="first"
-      class={`my-auto w-[400px] h-[400px]  ${$padding} ${bg_color}  ${$border_width} ${border_color} ${$border_radius} ${$border_style.get(
-        "style"
-      )}
+      class={`my-auto w-[400px] h-[400px]  ${$padding} ${bg_color}  ${$border_width} ${border_color} ${border_property_array}
       ${ring_property_array}  ${ring_color} ${ring_offset_color}  ${outline_property_array} ${outline_color} ${effects_property_array} ${shadow_color} ${filter_property_array}`}
     />
   {:else}
@@ -74,9 +72,7 @@
       <pre data-prefix="~">
         <code>
 
-      {`my-auto w-[400px] h-[400px]  ${$padding} ${bg_color}  ${$border_width} ${border_color} ${$border_radius} ${$border_style.get(
-            "style"
-          )}
+      {`my-auto w-[400px] h-[400px]  ${$padding} ${bg_color}  ${$border_width} ${border_color} ${border_property_array}
       ${ring_property_array} ${ring_color}  ${ring_offset_color}  ${outline_property_array} ${outline_color} ${effects_property_array} ${shadow_color} ${filter_property_array}`}
         </code>
       </pre>
