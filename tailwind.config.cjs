@@ -15,6 +15,9 @@ const config = {
       pattern: /ring-[a-z]+-\d+/
     },
     {
+      pattern: /border-\d+/
+    },
+    {
       pattern: /ring-offset-[a-z]+-\d+/
     },
     //Border Colors and Width

@@ -1,17 +1,25 @@
 <script lang="ts">
-  import { border_style, border_width, border_radius } from "./stores";
+  import { border_property } from "./stores";
 
   interface border_direction {
     value: number;
     toggle: boolean;
   }
-  let width = "0";
-  let style = "";
 
-  let border_width_collection = ["", "", "", ""];
+  let border_width_pos: number = 2;
+  let border_width_values: Array<string> = ["-0", "", "-2", "-4", "-8"];
+  $: border_width = border_width_values[border_width_pos];
+  $: sliced_width = border_width === "" ? 1 : border_width.slice(1);
+
+  let style = "";
   let border_radius_collection = "";
 
-  //TODO maybe add a map structure - to reduce the code
+  //NOTE Read more about data attributes
+
+  //TODO make sure that direction panel is abstracted
+  //TODO needs to be a functional component
+
+  //TODO need to create different b* values for bx/by/b
 
   let bt: border_direction = {
     value: 0,
@@ -32,62 +40,86 @@
     toggle: false,
   };
 
-  $: border_width.update(() => {
-    return border_width_collection
-      .map((value) => value.replace("-1", ""))
-      .join(" ");
-  });
-
-  $: border_radius.update(() => border_radius_collection);
-
-  $: border_style.update(() => $border_style.set("style", style));
+  $: border_property.update(() => $border_property.set("style", style));
 
   $: if (bt.toggle && bb.toggle && bl.toggle && br.toggle) {
-    //border_width_collection[4] = "border-" + width;
+    border_property.update(() => {
+      $border_property.set("border-y", "");
+      $border_property.set("border-x", "");
+      $border_property.set("border-t", "");
+      $border_property.set("border-b", "");
+      $border_property.set("border-l", "");
+      $border_property.set("border-r", "");
+      return $border_property.set("border", "border" + border_width);
+    });
 
-    border_width_collection[0] = "border-t-" + width;
-    border_width_collection[1] = "border-b-" + width;
-    border_width_collection[2] = "border-r-" + width;
-    border_width_collection[3] = "border-l-" + width;
-    bt.value = Number(width);
-    bb.value = Number(width);
-    bl.value = Number(width);
-    br.value = Number(width);
+    bt.value = Number(sliced_width);
+    bb.value = Number(sliced_width);
+    bl.value = Number(sliced_width);
+    br.value = Number(sliced_width);
   } else if (bt.toggle && bb.toggle) {
-    border_width_collection[0] = "border-t-" + width;
-    border_width_collection[1] = "border-b-" + width;
+    border_property.update(() => {
+      $border_property.set("border", "");
+      $border_property.set("border-t", "");
+      $border_property.set("border-b", "");
+      return $border_property.set("border-y", "border-y" + border_width);
+    });
 
-    bt.value = Number(width);
-    bb.value = Number(width);
+    bt.value = Number(sliced_width);
+    bb.value = Number(sliced_width);
   } else if (br.toggle && bl.toggle) {
-    border_width_collection[2] = "border-r-" + width;
-    border_width_collection[3] = "border-l-" + width;
-    br.value = Number(width);
-    bl.value = Number(width);
+    border_property.update(() => {
+      $border_property.set("border", "");
+      $border_property.set("border-l", "");
+      $border_property.set("border-r", "");
+      return $border_property.set("border-x", "border-x" + border_width);
+    });
+
+    br.value = Number(sliced_width);
+    bl.value = Number(sliced_width);
   } else if (bt.toggle) {
-    border_width_collection[0] = "border-t-" + width;
-    bt.value = Number(width);
+    border_property.update(() => {
+      $border_property.set("border", "");
+      $border_property.set("border-y", "");
+      return $border_property.set("border-t", "border-t" + border_width);
+    });
+
+    bt.value = Number(sliced_width);
   } else if (bb.toggle) {
-    border_width_collection[1] = "border-b-" + width;
-    bb.value = Number(width);
-  } else if (br.toggle) {
-    border_width_collection[2] = "border-r-" + width;
-    br.value = Number(width);
+    border_property.update(() => {
+      $border_property.set("border", "");
+      $border_property.set("border-y", "");
+      return $border_property.set("border-b", "border-b" + border_width);
+    });
+
+    bb.value = Number(sliced_width);
   } else if (bl.toggle) {
-    border_width_collection[3] = "border-l-" + width;
-    bl.value = Number(width);
+    border_property.update(() => {
+      $border_property.set("border", "");
+      $border_property.set("border-x", "");
+      return $border_property.set("border-l", "border-l" + border_width);
+    });
+
+    bl.value = Number(sliced_width);
+  } else if (br.toggle) {
+    border_property.update(() => {
+      $border_property.set("border", "");
+      $border_property.set("border-x", "");
+      return $border_property.set("border-r", "border-r" + border_width);
+    });
+    br.value = Number(sliced_width);
   }
 </script>
 
 <div id="border-control">
-  <!--- Map a new array, by removing the -1 -->
   <div id="group-buttons" class="grid grid-cols-2 grid-rows-3 my-1 w-28">
+    <!-- <select class="select select-bordered" /> -->
     <button
       class={`col-span-2  rounded-t-lg ${bt.toggle ? "active" : ""}`}
       on:click={() => (bt.toggle = !bt.toggle)}
     >
-      {bt.value}</button
-    >
+      {bt.value}
+    </button>
     <button
       class={`${bl.toggle ? "active" : ""}`}
       on:click={() => (bl.toggle = !bl.toggle)}
@@ -107,23 +139,22 @@
       {bb.value}</button
     >
   </div>
-  <div id="border-width-section" class="my-1 join">
-    <label class="label px-3 bg-base-200 join-item" for="border-width"
-      >Width</label
+  <!-- 
+   Width Selector
+-->
+  <div id="border-width-section" class="mb-1 mt-2">
+    <label class="label px-3 bg-base-200" for="border-width"
+      >Width: {sliced_width}</label
     >
-    <select
-      class="select select-bordered join-item"
-      bind:value={width}
+    <input
       id="border-width"
-    >
-      <option value="0">0</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="4">4</option>
-      <option value="8">8</option>
-    </select>
+      type="range"
+      class="range"
+      min="0"
+      max="4"
+      bind:value={border_width_pos}
+    />
   </div>
-  <br />
   <div class="join my-1" id="border-radius-section">
     <label class="label px-3 bg-base-200 join-item" for="border-radius"
       >Radius</label
@@ -131,7 +162,10 @@
     <select
       class="select select-bordered join-item"
       bind:value={border_radius_collection}
-      on:change={() => border_radius.update(() => border_radius_collection)}
+      on:change={() =>
+        border_property.update(() =>
+          $border_property.set("radius", border_radius_collection)
+        )}
     >
       <option value="rounded-sm">sm</option>
       <option value="rounded">Default</option>
@@ -143,6 +177,7 @@
       <option value="rounded-full">full</option>
     </select>
   </div>
+  <br />
   <div id="border-style-section" class="my-1 join">
     <label class="label px-3 bg-base-200 join-item" for="border-style"
       >Style</label
