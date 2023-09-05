@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { border_style } from "./stores";
+  import { border_property } from "./stores";
 
   interface border_direction {
     value: number;
@@ -8,15 +8,18 @@
 
   let border_width_pos: number = 2;
   let border_width_values: Array<string> = ["-0", "", "-2", "-4", "-8"];
-  $: width = border_width_values[border_width_pos];
-  $: sliced_width = width === "" ? 1 : width.slice(1);
+  $: border_width = border_width_values[border_width_pos];
+  $: sliced_width = border_width === "" ? 1 : border_width.slice(1);
 
   let style = "";
   let border_radius_collection = "";
 
   //NOTE Read more about data attributes
+
   //TODO make sure that direction panel is abstracted
   //TODO needs to be a functional component
+
+  //TODO need to create different b* values for bx/by/b
 
   let bt: border_direction = {
     value: 0,
@@ -37,17 +40,17 @@
     toggle: false,
   };
 
-  $: border_style.update(() => $border_style.set("style", style));
+  $: border_property.update(() => $border_property.set("style", style));
 
   $: if (bt.toggle && bb.toggle && bl.toggle && br.toggle) {
-    border_style.update(() => {
-      $border_style.set("border-y", "");
-      $border_style.set("border-x", "");
-      $border_style.set("border-t", "");
-      $border_style.set("border-b", "");
-      $border_style.set("border-l", "");
-      $border_style.set("border-r", "");
-      return $border_style.set("border", "border" + width);
+    border_property.update(() => {
+      $border_property.set("border-y", "");
+      $border_property.set("border-x", "");
+      $border_property.set("border-t", "");
+      $border_property.set("border-b", "");
+      $border_property.set("border-l", "");
+      $border_property.set("border-r", "");
+      return $border_property.set("border", "border" + border_width);
     });
 
     bt.value = Number(sliced_width);
@@ -55,54 +58,54 @@
     bl.value = Number(sliced_width);
     br.value = Number(sliced_width);
   } else if (bt.toggle && bb.toggle) {
-    border_style.update(() => {
-      $border_style.set("border", "");
-      $border_style.set("border-t", "");
-      $border_style.set("border-b", "");
-      return $border_style.set("border-y", "border-y" + width);
+    border_property.update(() => {
+      $border_property.set("border", "");
+      $border_property.set("border-t", "");
+      $border_property.set("border-b", "");
+      return $border_property.set("border-y", "border-y" + border_width);
     });
 
     bt.value = Number(sliced_width);
     bb.value = Number(sliced_width);
   } else if (br.toggle && bl.toggle) {
-    border_style.update(() => {
-      $border_style.set("border", "");
-      $border_style.set("border-l", "");
-      $border_style.set("border-r", "");
-      return $border_style.set("border-x", "border-x" + width);
+    border_property.update(() => {
+      $border_property.set("border", "");
+      $border_property.set("border-l", "");
+      $border_property.set("border-r", "");
+      return $border_property.set("border-x", "border-x" + border_width);
     });
 
     br.value = Number(sliced_width);
     bl.value = Number(sliced_width);
   } else if (bt.toggle) {
-    border_style.update(() => {
-      $border_style.set("border", "");
-      $border_style.set("border-y", "");
-      return $border_style.set("border-t", "border-t" + width);
+    border_property.update(() => {
+      $border_property.set("border", "");
+      $border_property.set("border-y", "");
+      return $border_property.set("border-t", "border-t" + border_width);
     });
 
     bt.value = Number(sliced_width);
   } else if (bb.toggle) {
-    border_style.update(() => {
-      $border_style.set("border", "");
-      $border_style.set("border-y", "");
-      return $border_style.set("border-b", "border-b" + width);
+    border_property.update(() => {
+      $border_property.set("border", "");
+      $border_property.set("border-y", "");
+      return $border_property.set("border-b", "border-b" + border_width);
     });
 
     bb.value = Number(sliced_width);
   } else if (bl.toggle) {
-    border_style.update(() => {
-      $border_style.set("border", "");
-      $border_style.set("border-x", "");
-      return $border_style.set("border-l", "border-l" + width);
+    border_property.update(() => {
+      $border_property.set("border", "");
+      $border_property.set("border-x", "");
+      return $border_property.set("border-l", "border-l" + border_width);
     });
 
     bl.value = Number(sliced_width);
   } else if (br.toggle) {
-    border_style.update(() => {
-      $border_style.set("border", "");
-      $border_style.set("border-x", "");
-      return $border_style.set("border-r", "border-r" + width);
+    border_property.update(() => {
+      $border_property.set("border", "");
+      $border_property.set("border-x", "");
+      return $border_property.set("border-r", "border-r" + border_width);
     });
     br.value = Number(sliced_width);
   }
@@ -110,7 +113,7 @@
 
 <div id="border-control">
   <div id="group-buttons" class="grid grid-cols-2 grid-rows-3 my-1 w-28">
-    <select class="select select-bordered" />
+    <!-- <select class="select select-bordered" /> -->
     <button
       class={`col-span-2  rounded-t-lg ${bt.toggle ? "active" : ""}`}
       on:click={() => (bt.toggle = !bt.toggle)}
@@ -160,8 +163,8 @@
       class="select select-bordered join-item"
       bind:value={border_radius_collection}
       on:change={() =>
-        border_style.update(() =>
-          $border_style.set("radius", border_radius_collection)
+        border_property.update(() =>
+          $border_property.set("radius", border_radius_collection)
         )}
     >
       <option value="rounded-sm">sm</option>
