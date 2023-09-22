@@ -20,6 +20,7 @@
   //NOTE Where I need to edit and how will it be achieved
   //NOTE So I need abstract the left right top and bottom
   //NOTE abstract border and padding
+  //NOTE Changed the selection to a Keyboard shortcuts, change values through keyboard
 </script>
 
 <!--
@@ -29,7 +30,7 @@
 -->
 <main class="flex flex-col w-12/12">
   <section
-    class="w-12/12 flex flex-row justify-start items-start border-4 border-primary p-4 mt-2 mx-2 rounded-md gap-2"
+    class="w-12/12 flex flex-row justify-start items-start border-4 border-primary p-4 m-2 rounded-md gap-2"
   >
     <button on:click={() => (show_code = !show_code)} class="btn"
       >Show {show_code ? "Code" : "Picture"}
