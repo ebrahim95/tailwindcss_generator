@@ -58,7 +58,7 @@
   ];
 </script>
 
-<section>
+<section class="grid grid-rows-2 grid-flow-col">
   <div class="join my-1" id="blur-mode">
     <label class="label px-3 bg-base-200 join-item" for="blur-mode">Blur</label>
     <select

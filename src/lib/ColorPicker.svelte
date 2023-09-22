@@ -17,8 +17,6 @@
 
 <div id="color-picker" class="mb-3">
   <div id="color-component-selector" class="mb-2">
-    <label class="label" for="edit-component">Color Picker</label>
-
     <select
       bind:value={id_change}
       id="edit-component"

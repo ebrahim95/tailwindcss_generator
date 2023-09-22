@@ -27,20 +27,19 @@
   Add the properties of flex box, width, height, color, font
   Second if a simple component is made, display it's properties on the side
 -->
-<main class="flex flex-row w-12/12">
-  <section class="w-3/12 flex flex-col items-start border-black p-4">
+<main class="flex flex-col w-12/12">
+  <section
+    class="w-12/12 flex flex-row justify-start items-start border-4 border-primary p-4 mt-2 mx-2 rounded-md gap-2"
+  >
     <button on:click={() => (show_code = !show_code)} class="btn"
       >Show {show_code ? "Code" : "Picture"}
     </button>
 
-    <button />
-
-    <!-- <AddHtmlComponent /> -->
     <ColorPicker />
     <select
       bind:value={panel_toggle}
       id="panel_toggle"
-      class="select select-bordered my-3"
+      class="select select-bordered mb-3"
     >
       <option value="border">Border</option>
       <option value="padding">Padding</option>
@@ -68,9 +67,9 @@
     <div class={`${panel_toggle === "filter" ? "" : "hidden"}`}>
       <FilterPanel />
     </div>
-    <span class="border-4 border-base-200 p-2">
+    <div class="border-4 border-base-200 p-2 justify-self-end">
       <h1>Tailwind CSS Style Generator</h1>
-    </span>
+    </div>
   </section>
   <DrawingComponent {show_code} />
 </main>

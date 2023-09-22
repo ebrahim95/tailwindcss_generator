@@ -39,6 +39,20 @@
     value: 0,
     toggle: false,
   };
+  let b: border_direction = {
+    value: 0,
+    toggle: false,
+  };
+
+  let bx: border_direction = {
+    value: 0,
+    toggle: false,
+  };
+
+  let by: border_direction = {
+    value: 0,
+    toggle: false,
+  };
 
   $: border_property.update(() => $border_property.set("style", style));
 
