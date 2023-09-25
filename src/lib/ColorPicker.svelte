@@ -61,27 +61,26 @@
     <button id={`stone-${color_shade}`} class={`bg-stone-${color_shade}`} />
     <button id={`red-${color_shade}`} class={`bg-red-${color_shade}`} />
     <button id={`orange-${color_shade}`} class={`bg-orange-${color_shade}`} />
-    <button id={`amber-${color_shade}`} class={` bg-amber-${color_shade}`} />
-    <button id={`yellow-${color_shade}`} class={` bg-yellow-${color_shade}`} />
-    <button id={`lime-${color_shade}`} class={` bg-lime-${color_shade}`} />
-    <button id={`green-${color_shade}`} class={` bg-green-${color_shade}`} />
-    <button
-      id={`emerald-${color_shade}`}
-      class={` bg-emerald-${color_shade}`}
-    />
-    <button id={`teal-${color_shade}`} class={` bg-teal-${color_shade}`} />
-    <button id={`cyan-${color_shade}`} class={` bg-cyan-${color_shade}`} />
-    <button id={`sky-${color_shade}`} class={` bg-sky-${color_shade}`} />
-    <button id={`blue-${color_shade}`} class={` bg-blue-${color_shade}`} />
-    <button id={`indigo-${color_shade}`} class={` bg-indigo-${color_shade}`} />
-    <button id={`violet-${color_shade}`} class={` bg-violet-${color_shade}`} />
-    <button id={`purple-${color_shade}`} class={` bg-purple-${color_shade}`} />
+    <button id={`amber-${color_shade}`} class={`bg-amber-${color_shade}`} />
+    <button id={`yellow-${color_shade}`} class={`bg-yellow-${color_shade}`} />
+    <button id={`lime-${color_shade}`} class={`bg-lime-${color_shade}`} />
+    <button id={`green-${color_shade}`} class={`bg-green-${color_shade}`} />
+    <button id={`emerald-${color_shade}`} class={`bg-emerald-${color_shade}`} />
+    <button id={`teal-${color_shade}`} class={`bg-teal-${color_shade}`} />
+    <button id={`cyan-${color_shade}`} class={`bg-cyan-${color_shade}`} />
+    <button id={`sky-${color_shade}`} class={`bg-sky-${color_shade}`} />
+    <button id={`blue-${color_shade}`} class={`bg-blue-${color_shade}`} />
+    <button id={`indigo-${color_shade}`} class={`bg-indigo-${color_shade}`} />
+    <button id={`violet-${color_shade}`} class={`bg-violet-${color_shade}`} />
+    <button id={`purple-${color_shade}`} class={`bg-purple-${color_shade}`} />
     <button
       id={`fuchsia-${color_shade}`}
       class={` bg-fuchsia-${color_shade}`}
     />
-    <button id={`pink-${color_shade}`} class={` bg-pink-${color_shade}`} />
-    <button id={`rose-${color_shade}`} class={` bg-rose-${color_shade}`} />
+    <button id={`pink-${color_shade}`} class={`bg-pink-${color_shade}`} />
+    <button id={`rose-${color_shade}`} class={`bg-rose-${color_shade}`} />
+    <button id={`black`} class={`bg-black`} />
+    <button id={`white`} class={`bg-white`} />
   </div>
 </div>
 
