@@ -55,7 +55,7 @@
   };
 
   $: border_property.update(() => $border_property.set("style", style));
-
+  // TODO split the if statements
   $: if (bt.toggle && bb.toggle && bl.toggle && br.toggle) {
     border_property.update(() => {
       $border_property.set("border-y", "");
