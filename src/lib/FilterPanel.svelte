@@ -58,25 +58,7 @@
   ];
 </script>
 
-<section>
-  <div class="join my-1" id="blur-mode">
-    <label class="label px-3 bg-base-200 join-item" for="blur-mode">Blur</label>
-    <select
-      class="select select-bordered join-item"
-      bind:value={blur_value}
-      on:change={() =>
-        filter_property.update(() => $filter_property.set("blue", blur_value))}
-    >
-      <option value="blur-none">None</option>
-      <option value="blur-sm">sm</option>
-      <option value="blur">default</option>
-      <option value="blur-md">md</option>
-      <option value="blur-lg">lg</option>
-      <option value="blur-xl">xl</option>
-      <option value="blur-2xl">2xl</option>
-      <option value="blur-3xl">3xl</option>
-    </select>
-  </div>
+<section class="grid grid-cols-4 grid-flow-row gap-4 items-start">
   <div id="brightness-selector">
     <label class="label" for="brightness-range"
       >Brightness: {brightness_value_array[brightness_value].split(
@@ -159,9 +141,27 @@
       }}
     />
   </div>
-  <div class="join my-1" id="drop-shadow">
+  <div class="join mb-1" id="blur-mode">
+    <label class="label px-3 bg-base-200 join-item" for="blur-mode">Blur</label>
+    <select
+      class="select select-bordered join-item"
+      bind:value={blur_value}
+      on:change={() =>
+        filter_property.update(() => $filter_property.set("blue", blur_value))}
+    >
+      <option value="blur-none">None</option>
+      <option value="blur-sm">sm</option>
+      <option value="blur">default</option>
+      <option value="blur-md">md</option>
+      <option value="blur-lg">lg</option>
+      <option value="blur-xl">xl</option>
+      <option value="blur-2xl">2xl</option>
+      <option value="blur-3xl">3xl</option>
+    </select>
+  </div>
+  <div class="join mb-1" id="drop-shadow">
     <label class="label px-3 bg-base-200 join-item" for="drop-shadow"
-      >Box Shadow</label
+      >Shadow</label
     >
     <select
       class="select select-bordered join-item"
@@ -181,8 +181,7 @@
       <option value="drop-shadow-none">None</option>
     </select>
   </div>
-  <br />
-  <div class="join my-1" id="grayscale-toggle">
+  <div class="join mb-1" id="grayscale-toggle">
     <label class="label px-3 bg-base-200 join-item" for="grayscale-toggle"
       >Grayscale</label
     >
@@ -196,8 +195,7 @@
         )}
     />
   </div>
-  <br />
-  <div class="join my-1" id="invert-toggle">
+  <div class="join mb-1" id="invert-toggle">
     <label class="label px-3 bg-base-200 join-item" for="invert-toggle"
       >Invert</label
     >
@@ -211,8 +209,7 @@
         )}
     />
   </div>
-  <br />
-  <div class="join my-1" id="sepia-toggle">
+  <div class="join mb-1" id="sepia-toggle">
     <label class="label px-3 bg-base-200 join-item" for="sepia-toggle"
       >Sepia</label
     >

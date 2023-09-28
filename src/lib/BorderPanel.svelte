@@ -39,9 +39,23 @@
     value: 0,
     toggle: false,
   };
+  let b: border_direction = {
+    value: 0,
+    toggle: false,
+  };
+
+  let bx: border_direction = {
+    value: 0,
+    toggle: false,
+  };
+
+  let by: border_direction = {
+    value: 0,
+    toggle: false,
+  };
 
   $: border_property.update(() => $border_property.set("style", style));
-
+  // TODO split the if statements
   $: if (bt.toggle && bb.toggle && bl.toggle && br.toggle) {
     border_property.update(() => {
       $border_property.set("border-y", "");
@@ -111,29 +125,37 @@
   }
 </script>
 
-<div id="border-control">
-  <div id="group-buttons" class="grid grid-cols-2 grid-rows-3 my-1 w-28">
+<div id="border-control" class="flex items-start">
+  <div id="group-buttons" class="grid grid-cols-3 grid-rows-3 my-1 w-28">
     <!-- <select class="select select-bordered" /> -->
     <button
-      class={`col-span-2  rounded-t-lg ${bt.toggle ? "active" : ""}`}
+      class={`col-span-1 col-start-2 col-end-2  rounded-t-lg ${
+        bt.toggle ? "active" : ""
+      }`}
       on:click={() => (bt.toggle = !bt.toggle)}
     >
       {bt.value}
     </button>
     <button
-      class={`${bl.toggle ? "active" : ""}`}
+      class={`${
+        bl.toggle ? "active" : ""
+      } row-start-2 row-end-2  rounded-l-lg `}
       on:click={() => (bl.toggle = !bl.toggle)}
     >
       {bl.value}</button
     >
     <button
-      class={`${br.toggle ? "active" : ""}`}
+      class={`${
+        br.toggle ? "active" : ""
+      } row-start-2 row-end-2 col-start-3 col-end-3  rounded-r-lg `}
       on:click={() => (br.toggle = !br.toggle)}
     >
       {br.value}</button
     >
     <button
-      class={`col-span-2 rounded-b-lg ${bb.toggle ? "active" : ""}`}
+      class={`col-span-1 col-start-2 col-end-2 rounded-b-lg ${
+        bb.toggle ? "active" : ""
+      } row-start-3 row-end-3`}
       on:click={() => (bb.toggle = !bb.toggle)}
     >
       {bb.value}</button
@@ -143,13 +165,11 @@
    Width Selector
 -->
   <div id="border-width-section" class="mb-1 mt-2">
-    <label class="label px-3 bg-base-200" for="border-width"
-      >Width: {sliced_width}</label
-    >
+    <label class="label px-3" for="border-width">Width: {sliced_width}</label>
     <input
       id="border-width"
       type="range"
-      class="range"
+      class="range mx-1"
       min="0"
       max="4"
       bind:value={border_width_pos}

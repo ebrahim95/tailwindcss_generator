@@ -20,7 +20,17 @@ so that I can improve my programming skills.
 
 ## Documentation
 ### How to use the application?
-#### Listed the features below:
+#### Keyboard Shortcuts
+<ul>
+    <li> Border press b</li>
+    <li> Effects press e</li>
+    <li> Filter press f</li>
+    <li> Outline press o</li>
+    <li> Padding press p</li>
+    <li> Ring press r</li>
+</ul>
+
+### Listed the features below:
 <ol>
 <li> Border </li>
 <ul>
