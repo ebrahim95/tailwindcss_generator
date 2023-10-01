@@ -10,6 +10,7 @@
   }
   let id_change = "bg";
   let color_shade = "500";
+  let panel_toggle = false;
   //TODO add Aria role
   //TODO need to seperate color panel
   //TODO you need change the state, might also have to add some positioning.
@@ -50,7 +51,9 @@
     on:keypress={handle_color}
     on:click={handle_color}
     id="color-panel"
-    class="grid grid-cols-5"
+    class={`grid grid-cols-7 gap-1 ${
+      panel_toggle ? "hidden" : ""
+    } absolute border-4 border-black p-1`}
     role="menu"
     tabindex="0"
   >
@@ -73,16 +76,23 @@
     <button id={`indigo-${color_shade}`} class={`bg-indigo-${color_shade}`} />
     <button id={`violet-${color_shade}`} class={`bg-violet-${color_shade}`} />
     <button id={`purple-${color_shade}`} class={`bg-purple-${color_shade}`} />
-    <button
-      id={`fuchsia-${color_shade}`}
-      class={` bg-fuchsia-${color_shade}`}
-    />
+    <button id={`fuchsia-${color_shade}`} class={`bg-fuchsia-${color_shade}`} />
     <button id={`pink-${color_shade}`} class={`bg-pink-${color_shade}`} />
     <button id={`rose-${color_shade}`} class={`bg-rose-${color_shade}`} />
     <button id={`black`} class={`bg-black`} />
     <button id={`white`} class={`bg-white`} />
   </div>
 </div>
+
+<svelte:window
+  on:keypress={(e) => {
+    switch (e.key) {
+      case "c":
+        panel_toggle = !panel_toggle;
+        break;
+    }
+  }}
+/>
 
 <style>
   #color-panel > button:hover {
