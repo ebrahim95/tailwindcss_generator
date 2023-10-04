@@ -10,9 +10,10 @@
   import OutlinePanel from "./lib/OutlinePanel.svelte";
   import PaddingPanel from "./lib/PaddingPanel.svelte";
   import RingPanel from "./lib/RingPanel.svelte";
+  import WhichKeyPanel from "./lib/WhichKeyPanel.svelte";
 
   let show_code: boolean = true;
-  let panel_toggle: string = "border";
+  let panel_toggle: string = "";
 
   function value_panel_toggle(panel: string) {
     panel_toggle = panel;
@@ -37,7 +38,7 @@
   Add the properties of flex box, width, height, color, font
   Second if a simple component is made, display it's properties on the side
 -->
-<main class="flex flex-col w-12/12">
+<main class="flex flex-col justify-end w-12/12">
   <section
     class="w-12/12 flex flex-row justify-start items-start border-4 border-primary p-4 m-2 rounded-md gap-2"
   >
@@ -104,12 +105,12 @@
     <div class={`${panel_toggle === "ring" ? "" : "hidden"}`}>
       <RingPanel />
     </div>
-    <div class="border-4 border-base-200 p-2 justify-self-end">
-      <h1>Tailwind CSS Style Generator</h1>
-    </div>
   </section>
-
   <DrawingComponent {show_code} />
+  <div class="border-4 border-base-200 p-2 justify-self-end">
+    <h1>Tailwind CSS Style Generator</h1>
+  </div>
+  <WhichKeyPanel />
 </main>
 
 <svelte:window
