@@ -51,9 +51,9 @@
     on:keypress={handle_color}
     on:click={handle_color}
     id="color-panel"
-    class={`grid grid-cols-7 gap-1 ${
-      panel_toggle ? "hidden" : ""
-    } absolute border-4 border-black p-1`}
+    class={`grid grid-cols-7 gap-1 bg-blue-100 ${
+      panel_toggle ? "hidden" : "absolute"
+    }  border-4 border-black p-1`}
     role="menu"
     tabindex="0"
   >
