@@ -48,8 +48,26 @@
     </button>
 
     <ColorPicker />
+    <div class={`${panel_toggle === "border" ? "" : "hidden"}`}>
+      <BorderPanel />
+    </div>
+    <div class={`${panel_toggle === "effects" ? "" : "hidden"}`}>
+      <EffectsPanel />
+    </div>
+    <div class={`${panel_toggle === "filter" ? "" : "hidden"}`}>
+      <FilterPanel />
+    </div>
+    <div class={`${panel_toggle === "outline" ? "" : "hidden"}`}>
+      <OutlinePanel />
+    </div>
+    <div class={`${panel_toggle === "padding" ? "" : "hidden"}`}>
+      <PaddingPanel />
+    </div>
+    <div class={`${panel_toggle === "ring" ? "" : "hidden"}`}>
+      <RingPanel />
+    </div>
 
-    <div class="mt-1 mb-2 mx-1 grid grid-cols-3 grid-rows-2 gap-2">
+    <div class="mt-1 mb-2 mx-1 grid grid-flow-col gap-2">
       <button
         on:click={() => (panel_toggle = "border")}
         class="mb-2 mx-1 p-1 border-black border-double border-4 rounded-md ring ring-offset-4"
@@ -87,25 +105,6 @@
         Filter
       </button>
     </div>
-
-    <div class={`${panel_toggle === "border" ? "" : "hidden"}`}>
-      <BorderPanel />
-    </div>
-    <div class={`${panel_toggle === "effects" ? "" : "hidden"}`}>
-      <EffectsPanel />
-    </div>
-    <div class={`${panel_toggle === "filter" ? "" : "hidden"}`}>
-      <FilterPanel />
-    </div>
-    <div class={`${panel_toggle === "outline" ? "" : "hidden"}`}>
-      <OutlinePanel />
-    </div>
-    <div class={`${panel_toggle === "padding" ? "" : "hidden"}`}>
-      <PaddingPanel />
-    </div>
-    <div class={`${panel_toggle === "ring" ? "" : "hidden"}`}>
-      <RingPanel />
-    </div>
   </section>
   <DrawingComponent {show_code} />
   <div class="border-4 border-black bg-blue-300 p-2 justify-self-end">
@@ -135,6 +134,9 @@
         break;
       case "r":
         panel_toggle = "ring";
+        break;
+      case "x":
+        panel_toggle = "";
         break;
     }
   }}
