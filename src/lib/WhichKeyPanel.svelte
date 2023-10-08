@@ -7,14 +7,14 @@
     which_key_panel_toggle ? "hidden" : "absolute"
   } self-center justify-self-end`}
 >
-  <span>B => Border</span>
-  <span>C => Colors</span>
-  <span>E => Effects</span>
-  <span>F => Filters</span>
-  <span>O => Outline</span>
-  <span>P => Padding</span>
-  <span>R => Ring</span>
-  <span>X => Close Panel</span>
+  <span>b => Border</span>
+  <span>c => Colors</span>
+  <span>e => Effects</span>
+  <span>f => Filters</span>
+  <span>o => Outline</span>
+  <span>p => Padding</span>
+  <span>r => Ring</span>
+  <span>x => Close Panel</span>
 </div>
 
 <svelte:window

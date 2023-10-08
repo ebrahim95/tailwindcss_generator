@@ -22,12 +22,14 @@ so that I can improve my programming skills.
 ### How to use the application?
 #### Keyboard Shortcuts
 <ul>
+    <li> Color press c</li>
     <li> Border press b</li>
     <li> Effects press e</li>
     <li> Filter press f</li>
     <li> Outline press o</li>
     <li> Padding press p</li>
     <li> Ring press r</li>
+    <li> Close a Panel press x</li>
 </ul>
 
 ### Listed the features below:
