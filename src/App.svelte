@@ -30,7 +30,8 @@
   //NOTE Where I need to edit and how will it be achieved
   //NOTE So I need abstract the left right top and bottom
   //NOTE abstract border and padding
-  //NOTE Changed the selection to a Keyboard shortcuts, change values through keyboard
+  //NOTE add absolute postions to the panels
+  //NOTE and decorate them well - also give instructions
 </script>
 
 <!--
@@ -40,7 +41,7 @@
 -->
 <main class="flex flex-col justify-end w-12/12">
   <section
-    class="w-12/12 flex flex-row justify-start items-start border-4 border-primary p-4 m-2 rounded-md gap-2"
+    class="w-12/12 flex flex-row justify-start items-start border-4 border-black p-4 m-2 rounded-md gap-2"
   >
     <button on:click={() => (show_code = !show_code)} class="btn"
       >Show {show_code ? "Code" : "Picture"}
@@ -107,8 +108,9 @@
     </div>
   </section>
   <DrawingComponent {show_code} />
-  <div class="border-4 border-base-200 p-2 justify-self-end">
+  <div class="border-4 border-black bg-blue-300 p-2 justify-self-end">
     <h1>Tailwind CSS Style Generator</h1>
+    <h2 class="font-bold">Press Space to show shortcut MENU</h2>
   </div>
   <WhichKeyPanel />
 </main>
