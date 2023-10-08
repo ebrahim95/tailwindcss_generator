@@ -59,8 +59,10 @@
   }
 </script>
 
-<div id="padding-control">
-  <div id="group-buttons" class="grid grid-cols-2 grid-rows-3 my-1 w-28">
+<div
+  id="padding-control"
+  class="flex items-start gap-4 absolute border-4 border-black rounded-lg p-4 bg-amber-50"
+>
   <div id="group-buttons" class="grid grid-cols-3 grid-rows-3 my-1 w-28">
     <!-- <select class="select select-bordered" /> -->
     <button
