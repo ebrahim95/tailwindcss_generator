@@ -6,13 +6,17 @@
   let mix_blend_value: string = "";
 </script>
 
-<section id="effects-panel">
+<section
+  id="effects-panel"
+  class="absolute border-4 border-black rounded-lg p-4 bg-amber-50"
+>
   <div class="join my-1" id="box-shadow">
-    <label class="label px-3 bg-base-200 join-item" for="box-shadow"
-      >Box Shadow</label
+    <label
+      class="label px-3 border-2 border-black bg-amber-50 join-item"
+      for="box-shadow">Box Shadow</label
     >
     <select
-      class="select select-bordered join-item"
+      class="select select-bordered bg-amber-50 join-item"
       bind:value={box_shadow_value}
       on:change={() =>
         effects_property.update(() =>
@@ -30,11 +34,14 @@
     </select>
   </div>
   <div class="join my-1" id="opacity">
-    <label class="label px-3 bg-base-200 join-item" for="opacity">
+    <label
+      class="label px-3 border-2 border-black bg-amber-50 join-item"
+      for="opacity"
+    >
       Opacity
     </label>
     <select
-      class="select select-bordered join-item"
+      class="select select-bordered bg-amber-50 join-item"
       bind:value={opacity_value}
       on:change={() =>
         effects_property.update(() =>
@@ -59,11 +66,14 @@
     </select>
   </div>
   <div class="join my-1" id="mix-blend-mode">
-    <label class="label px-3 bg-base-200 join-item" for="mix-blend">
+    <label
+      class="label px-3 border-2 border-black bg-amber-50 join-item"
+      for="mix-blend"
+    >
       Mix Blend
     </label>
     <select
-      class="select select-bordered join-item"
+      class="select select-bordered bg-amber-50 join-item"
       bind:value={mix_blend_value}
       on:change={() =>
         effects_property.update(() =>

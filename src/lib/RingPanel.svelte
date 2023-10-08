@@ -8,14 +8,16 @@
   });
 </script>
 
-<div>
+<div class="absolute border-4 border-black rounded-lg p-4 bg-amber-50">
   <section id="ring-width-panel" class="join mb-1">
-    <label class="label px-3 bg-base-200 join-item" for="ring-width"
+    <label
+      class="label border-2 border-black px-3 bg-amber-50 join-item"
+      for="ring-width"
       >Width
     </label>
     <select
       id="ring-width"
-      class="select select-bordered join-item"
+      class="select select-bordered bg-amber-50 join-item"
       bind:value={ring_value}
       on:change={() =>
         ring_property.update(() => $ring_property.set("width", ring_value))}
@@ -29,12 +31,14 @@
     </select>
   </section>
   <section id="ring-offset-panel" class="join mb-1">
-    <label class="label px-3 bg-base-200 join-item" for="ring-offset"
+    <label
+      class="label border-2 border-black px-3 bg-amber-50 join-item"
+      for="ring-offset"
       >Offset
     </label>
     <select
       id="ring-offset"
-      class="select select-bordered join-item"
+      class="select select-bordered bg-amber-50 join-item"
       bind:value={ring_offset}
       on:change={() =>
         ring_property.update(() => $ring_property.set("offset", ring_offset))}
