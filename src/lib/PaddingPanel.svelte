@@ -59,31 +59,43 @@
   }
 </script>
 
-<div id="padding-control">
-  <div id="group-buttons" class="grid grid-cols-2 grid-rows-3 my-1 w-28">
+<div
+  id="padding-control"
+  class="flex items-start gap-4 absolute border-4 border-black rounded-lg p-4 bg-amber-50"
+>
+  <div id="group-buttons" class="grid grid-cols-3 grid-rows-3 my-1 w-28">
+    <!-- <select class="select select-bordered" /> -->
     <button
-      class={`col-span-2 rounded-t-lg ${pt.toggle ? "active" : ""}`}
+      class={`col-span-1 col-start-2 col-end-2  rounded-t-lg ${
+        pt.toggle ? "active" : ""
+      }`}
       on:click={() => (pt.toggle = !pt.toggle)}
     >
-      {pt.value}</button
-    >
+      {pt.value}
+    </button>
     <button
-      class={`${pb.toggle ? "active" : ""}`}
-      on:click={() => (pb.toggle = !pb.toggle)}
-    >
-      {pb.value}</button
-    >
-    <button
-      class={`${pl.toggle ? "active" : ""}`}
+      class={`${
+        pl.toggle ? "active" : ""
+      } row-start-2 row-end-2  rounded-l-lg `}
       on:click={() => (pl.toggle = !pl.toggle)}
     >
       {pl.value}</button
     >
     <button
-      class={`col-span-2 rounded-b-lg ${pr.toggle ? "active" : ""}`}
+      class={`${
+        pr.toggle ? "active" : ""
+      } row-start-2 row-end-2 col-start-3 col-end-3  rounded-r-lg `}
       on:click={() => (pr.toggle = !pr.toggle)}
     >
       {pr.value}</button
+    >
+    <button
+      class={`col-span-1 col-start-2 col-end-2 rounded-b-lg ${
+        pb.toggle ? "active" : ""
+      } row-start-3 row-end-3`}
+      on:click={() => (pb.toggle = !pb.toggle)}
+    >
+      {pb.value}</button
     >
   </div>
   <div id="padding-selector">

@@ -70,10 +70,7 @@
   // }
 </script>
 
-<div
-  id="pendu"
-  class="flex flex-col w-full place-items-center place-content-center"
->
+<div id="pendu" class="flex flex-col w-full my-auto items-center">
   {#if show_code}
     <div
       id="first"

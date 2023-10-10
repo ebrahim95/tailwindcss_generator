@@ -55,7 +55,9 @@
   };
 
   $: border_property.update(() => $border_property.set("style", style));
-  // TODO split the if statements
+  // TODO basically I need to seperate the logic into two
+  // First I need to only change the value
+  // then I scan the value to make sure the correct tailwind styles are working
   $: if (bt.toggle && bb.toggle && bl.toggle && br.toggle) {
     border_property.update(() => {
       $border_property.set("border-y", "");
@@ -125,7 +127,10 @@
   }
 </script>
 
-<div id="border-control" class="flex items-start">
+<div
+  id="border-control"
+  class="flex items-start gap-3 absolute border-4 border-black rounded-lg p-4 bg-amber-50"
+>
   <div id="group-buttons" class="grid grid-cols-3 grid-rows-3 my-1 w-28">
     <!-- <select class="select select-bordered" /> -->
     <button
@@ -176,11 +181,12 @@
     />
   </div>
   <div class="join my-1" id="border-radius-section">
-    <label class="label px-3 bg-base-200 join-item" for="border-radius"
-      >Radius</label
+    <label
+      class="label border-2 border-black px-3 ml-1 bg-amber-50 join-item"
+      for="border-radius">Radius</label
     >
     <select
-      class="select select-bordered join-item"
+      class="select select-bordered bg-amber-50 join-item"
       bind:value={border_radius_collection}
       on:change={() =>
         border_property.update(() =>
@@ -197,13 +203,13 @@
       <option value="rounded-full">full</option>
     </select>
   </div>
-  <br />
   <div id="border-style-section" class="my-1 join">
-    <label class="label px-3 bg-base-200 join-item" for="border-style"
-      >Style</label
+    <label
+      class="label border-2 border-black px-3 bg-amber-50 join-item"
+      for="border-style">Style</label
     >
     <select
-      class="select select-bordered join-item"
+      class="select select-bordered bg-amber-50 join-item"
       bind:value={style}
       id="border-style"
     >

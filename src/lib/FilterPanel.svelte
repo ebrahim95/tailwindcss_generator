@@ -58,7 +58,9 @@
   ];
 </script>
 
-<section class="grid grid-cols-4 grid-flow-row gap-4 items-start">
+<section
+  class="absolute border-4 border-black rounded-lg p-4 bg-amber-50 grid grid-cols-4 grid-flow-row gap-4 items-start"
+>
   <div id="brightness-selector">
     <label class="label" for="brightness-range"
       >Brightness: {brightness_value_array[brightness_value].split(
@@ -142,9 +144,12 @@
     />
   </div>
   <div class="join mb-1" id="blur-mode">
-    <label class="label px-3 bg-base-200 join-item" for="blur-mode">Blur</label>
+    <label
+      class="label border-2 border-black bg-amber-50 px-3 join-item"
+      for="blur-mode">Blur</label
+    >
     <select
-      class="select select-bordered join-item"
+      class="select select-bordered bg-amber-50 join-item"
       bind:value={blur_value}
       on:change={() =>
         filter_property.update(() => $filter_property.set("blue", blur_value))}
@@ -160,11 +165,12 @@
     </select>
   </div>
   <div class="join mb-1" id="drop-shadow">
-    <label class="label px-3 bg-base-200 join-item" for="drop-shadow"
-      >Shadow</label
+    <label
+      class="label border-2 border-black bg-amber-50 px-3 join-item"
+      for="drop-shadow">Shadow</label
     >
     <select
-      class="select select-bordered join-item"
+      class="select select-bordered bg-amber-50 join-item"
       bind:value={drop_shadow_value}
       on:change={() =>
         filter_property.update(() =>
@@ -182,12 +188,13 @@
     </select>
   </div>
   <div class="join mb-1" id="grayscale-toggle">
-    <label class="label px-3 bg-base-200 join-item" for="grayscale-toggle"
-      >Grayscale</label
+    <label
+      class="label border-2 border-black bg-amber-50 px-3 join-item"
+      for="grayscale-toggle">Grayscale</label
     >
     <input
       bind:checked={grayscale_toggle}
-      class="toggle toggle-lg p-5 join-item"
+      class="toggle toggle-lg p-5 join-item border-2 border-black"
       type="checkbox"
       on:change={() =>
         filter_property.update(() =>
@@ -196,12 +203,13 @@
     />
   </div>
   <div class="join mb-1" id="invert-toggle">
-    <label class="label px-3 bg-base-200 join-item" for="invert-toggle"
-      >Invert</label
+    <label
+      class="label border-2 border-black bg-amber-50 px-3 join-item"
+      for="invert-toggle">Invert</label
     >
     <input
       bind:checked={invert_toggle}
-      class="toggle toggle-lg p-5 join-item"
+      class="toggle toggle-lg p-5 join-item border-2 border-black"
       type="checkbox"
       on:change={() =>
         filter_property.update(() =>
@@ -210,12 +218,13 @@
     />
   </div>
   <div class="join mb-1" id="sepia-toggle">
-    <label class="label px-3 bg-base-200 join-item" for="sepia-toggle"
-      >Sepia</label
+    <label
+      class="label border-2 border-black bg-amber-50 px-3 join-item"
+      for="sepia-toggle">Sepia</label
     >
     <input
       bind:checked={sepia_toggle}
-      class="toggle toggle-lg p-5 join-item"
+      class="toggle toggle-lg p-5 join-item border-2 border-black"
       type="checkbox"
       on:change={() =>
         filter_property.update(() =>

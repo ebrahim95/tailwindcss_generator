@@ -10,9 +10,10 @@
   import OutlinePanel from "./lib/OutlinePanel.svelte";
   import PaddingPanel from "./lib/PaddingPanel.svelte";
   import RingPanel from "./lib/RingPanel.svelte";
+  import WhichKeyPanel from "./lib/WhichKeyPanel.svelte";
 
   let show_code: boolean = true;
-  let panel_toggle: string = "border";
+  let panel_toggle: string = "";
 
   function value_panel_toggle(panel: string) {
     panel_toggle = panel;
@@ -29,7 +30,8 @@
   //NOTE Where I need to edit and how will it be achieved
   //NOTE So I need abstract the left right top and bottom
   //NOTE abstract border and padding
-  //NOTE Changed the selection to a Keyboard shortcuts, change values through keyboard
+  //NOTE add absolute postions to the panels
+  //NOTE and decorate them well - also give instructions
 </script>
 
 <!--
@@ -37,17 +39,35 @@
   Add the properties of flex box, width, height, color, font
   Second if a simple component is made, display it's properties on the side
 -->
-<main class="flex flex-col w-12/12">
+<main class="flex flex-col justify-end w-12/12">
   <section
-    class="w-12/12 flex flex-row justify-start items-start border-4 border-primary p-4 m-2 rounded-md gap-2"
+    class="w-12/12 flex flex-row justify-start items-start border-4 border-black p-4 m-2 rounded-md gap-2"
   >
     <button on:click={() => (show_code = !show_code)} class="btn"
       >Show {show_code ? "Code" : "Picture"}
     </button>
 
     <ColorPicker />
+    <div class={`${panel_toggle === "border" ? "" : "hidden"}`}>
+      <BorderPanel />
+    </div>
+    <div class={`${panel_toggle === "effects" ? "" : "hidden"}`}>
+      <EffectsPanel />
+    </div>
+    <div class={`${panel_toggle === "filter" ? "" : "hidden"}`}>
+      <FilterPanel />
+    </div>
+    <div class={`${panel_toggle === "outline" ? "" : "hidden"}`}>
+      <OutlinePanel />
+    </div>
+    <div class={`${panel_toggle === "padding" ? "" : "hidden"}`}>
+      <PaddingPanel />
+    </div>
+    <div class={`${panel_toggle === "ring" ? "" : "hidden"}`}>
+      <RingPanel />
+    </div>
 
-    <div class="mt-1 mb-2 mx-1 grid grid-cols-3 grid-rows-2 gap-2">
+    <div class="mt-1 mb-2 mx-1 grid grid-flow-col gap-2">
       <button
         on:click={() => (panel_toggle = "border")}
         class="mb-2 mx-1 p-1 border-black border-double border-4 rounded-md ring ring-offset-4"
@@ -85,31 +105,13 @@
         Filter
       </button>
     </div>
-
-    <div class={`${panel_toggle === "border" ? "" : "hidden"}`}>
-      <BorderPanel />
-    </div>
-    <div class={`${panel_toggle === "effects" ? "" : "hidden"}`}>
-      <EffectsPanel />
-    </div>
-    <div class={`${panel_toggle === "filter" ? "" : "hidden"}`}>
-      <FilterPanel />
-    </div>
-    <div class={`${panel_toggle === "outline" ? "" : "hidden"}`}>
-      <OutlinePanel />
-    </div>
-    <div class={`${panel_toggle === "padding" ? "" : "hidden"}`}>
-      <PaddingPanel />
-    </div>
-    <div class={`${panel_toggle === "ring" ? "" : "hidden"}`}>
-      <RingPanel />
-    </div>
-    <div class="border-4 border-base-200 p-2 justify-self-end">
-      <h1>Tailwind CSS Style Generator</h1>
-    </div>
   </section>
-
   <DrawingComponent {show_code} />
+  <div class="border-4 border-black bg-blue-300 p-2 justify-self-end">
+    <h1>Tailwind CSS Style Generator</h1>
+    <h2 class="font-bold">Press Space to show shortcut MENU</h2>
+  </div>
+  <WhichKeyPanel />
 </main>
 
 <svelte:window
@@ -132,6 +134,9 @@
         break;
       case "r":
         panel_toggle = "ring";
+        break;
+      case "x":
+        panel_toggle = "";
         break;
     }
   }}
