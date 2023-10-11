@@ -39,9 +39,9 @@
   Add the properties of flex box, width, height, color, font
   Second if a simple component is made, display it's properties on the side
 -->
-<main class="flex flex-col justify-end w-12/12">
+<main class="flex flex-col justify-end">
   <section
-    class="w-12/12 flex flex-row justify-start items-start border-4 border-black p-4 m-2 rounded-md gap-2"
+    class="self-center flex flex-row justify-center items-center border-4 border-black p-4 m-2 rounded-md gap-2"
   >
     <button on:click={() => (show_code = !show_code)} class="btn"
       >Show {show_code ? "Code" : "Picture"}
@@ -67,40 +67,40 @@
       <RingPanel />
     </div>
 
-    <div class="mt-1 mb-2 mx-1 grid grid-flow-col gap-2">
+    <div class="mx-1 grid grid-flow-col gap-2">
       <button
         on:click={() => (panel_toggle = "border")}
-        class="mb-2 mx-1 p-1 border-black border-double border-4 rounded-md ring ring-offset-4"
+        class=" mx-1 p-1 border-black border-double border-4 rounded-md ring ring-offset-4"
       >
         Border
       </button>
       <button
         on:click={() => (panel_toggle = "padding")}
-        class="mb-2 mx-1 p-1 border-black border-double border-4 rounded-md ring ring-offset-4"
+        class="mx-1 p-1 border-black border-double border-4 rounded-md ring ring-offset-4"
       >
         Padding
       </button>
       <button
         on:click={() => (panel_toggle = "ring")}
-        class="mb-2 mx-1 p-1 border-black border-double border-4 rounded-md ring ring-offset-4"
+        class="mx-1 p-1 border-black border-double border-4 rounded-md ring ring-offset-4"
       >
         Ring
       </button>
       <button
         on:click={() => (panel_toggle = "outline")}
-        class="mb-2 mx-1 p-1 border-black border-double border-4 rounded-md ring ring-offset-4"
+        class="mx-1 p-1 border-black border-double border-4 rounded-md ring ring-offset-4"
       >
         Outline
       </button>
       <button
         on:click={() => (panel_toggle = "effects")}
-        class="mb-2 mx-1 p-1 border-black border-double border-4 rounded-md ring ring-offset-4"
+        class=" mx-1 p-1 border-black border-double border-4 rounded-md ring ring-offset-4"
       >
         Effects
       </button>
       <button
         on:click={() => (panel_toggle = "filter")}
-        class="mb-2 mx-1 p-1 border-black border-double border-4 rounded-md ring ring-offset-4"
+        class=" mx-1 p-1 border-black border-double border-4 rounded-md ring ring-offset-4"
       >
         Filter
       </button>
@@ -109,7 +109,9 @@
   <DrawingComponent {show_code} />
   <div class="border-4 border-black bg-blue-300 p-2 justify-self-end">
     <h1>Tailwind CSS Style Generator</h1>
-    <h2 class="font-bold">Press Space to show shortcut MENU</h2>
+    <h2 class="font-bold">
+      Press Space to show shortcut <kbd class="kbd">MENU</kbd>
+    </h2>
   </div>
   <WhichKeyPanel />
 </main>
