@@ -16,8 +16,8 @@
   //TODO you need change the state, might also have to add some positioning.
 </script>
 
-<div id="color-picker" class="mb-3">
-  <div id="color-component-selector" class="mb-2">
+<div id="color-picker">
+  <div id="color-component-selector">
     <select
       bind:value={id_change}
       id="edit-component"
