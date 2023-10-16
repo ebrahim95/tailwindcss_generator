@@ -40,72 +40,74 @@
   Second if a simple component is made, display it's properties on the side
 -->
 <main class="flex flex-col justify-end">
+  <ColorPicker />
   <section
-    class="self-center flex flex-row justify-center items-center border-4 border-black p-4 m-2 rounded-md gap-2"
+    class="bg-amber-100 self-start flex flex-row justify-center items-center border-4 border-black p-4 m-2 rounded-md gap-2"
   >
-    <button on:click={() => (show_code = !show_code)} class="btn"
+    <button
+      on:click={() => (show_code = !show_code)}
+      class="btn bg-amber-50 hover:bg-amber-200"
       >Show {show_code ? "Code" : "Picture"}
     </button>
-
-    <ColorPicker />
-    <div class={`${panel_toggle === "border" ? "" : "hidden"}`}>
-      <BorderPanel />
-    </div>
-    <div class={`${panel_toggle === "effects" ? "" : "hidden"}`}>
-      <EffectsPanel />
-    </div>
-    <div class={`${panel_toggle === "filter" ? "" : "hidden"}`}>
-      <FilterPanel />
-    </div>
-    <div class={`${panel_toggle === "outline" ? "" : "hidden"}`}>
-      <OutlinePanel />
-    </div>
-    <div class={`${panel_toggle === "padding" ? "" : "hidden"}`}>
-      <PaddingPanel />
-    </div>
-    <div class={`${panel_toggle === "ring" ? "" : "hidden"}`}>
-      <RingPanel />
-    </div>
 
     <div class="mx-1 grid grid-flow-col gap-2">
       <button
         on:click={() => (panel_toggle = "border")}
-        class=" mx-1 p-1 border-black border-double border-4 rounded-md ring ring-offset-4"
+        class="bg-amber-50 mx-1 p-1 border-black border-solid border-4 rounded-md ring ring-offset-4"
       >
         Border
       </button>
       <button
         on:click={() => (panel_toggle = "padding")}
-        class="mx-1 p-1 border-black border-double border-4 rounded-md ring ring-offset-4"
+        class="bg-amber-50 mx-1 p-1 border-black border-solid border-4 rounded-md ring ring-offset-4"
       >
         Padding
       </button>
       <button
         on:click={() => (panel_toggle = "ring")}
-        class="mx-1 p-1 border-black border-double border-4 rounded-md ring ring-offset-4"
+        class="bg-amber-50 mx-1 p-1 border-black border-solid border-4 rounded-md ring ring-offset-4"
       >
         Ring
       </button>
       <button
         on:click={() => (panel_toggle = "outline")}
-        class="mx-1 p-1 border-black border-double border-4 rounded-md ring ring-offset-4"
+        class="bg-amber-50 mx-1 p-1 border-black border-solid border-4 rounded-md ring ring-offset-4"
       >
         Outline
       </button>
       <button
         on:click={() => (panel_toggle = "effects")}
-        class=" mx-1 p-1 border-black border-double border-4 rounded-md ring ring-offset-4"
+        class="bg-amber-50 mx-1 p-1 border-black border-solid border-4 rounded-md ring ring-offset-4"
       >
         Effects
       </button>
       <button
         on:click={() => (panel_toggle = "filter")}
-        class=" mx-1 p-1 border-black border-double border-4 rounded-md ring ring-offset-4"
+        class="bg-amber-50 mx-1 p-1 border-black border-solid border-4 rounded-md ring ring-offset-4"
       >
         Filter
       </button>
     </div>
   </section>
+  <div class={`${panel_toggle === "border" ? "" : "hidden"}`}>
+    <BorderPanel />
+  </div>
+  <div class={`${panel_toggle === "effects" ? "" : "hidden"}`}>
+    <EffectsPanel />
+  </div>
+  <div class={`${panel_toggle === "filter" ? "" : "hidden"}`}>
+    <FilterPanel />
+  </div>
+  <div class={`${panel_toggle === "outline" ? "" : "hidden"}`}>
+    <OutlinePanel />
+  </div>
+  <div class={`${panel_toggle === "padding" ? "" : "hidden"}`}>
+    <PaddingPanel />
+  </div>
+  <div class={`${panel_toggle === "ring" ? "" : "hidden"}`}>
+    <RingPanel />
+  </div>
+
   <DrawingComponent {show_code} />
   <div class="border-4 border-black bg-blue-300 p-2 justify-self-end">
     <h1>Tailwind CSS Style Generator</h1>
