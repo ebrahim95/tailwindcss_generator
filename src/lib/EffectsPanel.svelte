@@ -8,7 +8,7 @@
 
 <section
   id="effects-panel"
-  class="absolute border-4 border-black rounded-lg p-4 bg-amber-50"
+  class="absolute right-2 top-2 border-4 border-black rounded-lg p-4 bg-amber-50"
 >
   <div class="join my-1" id="box-shadow">
     <label

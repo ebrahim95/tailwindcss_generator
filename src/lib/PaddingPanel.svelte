@@ -61,7 +61,7 @@
 
 <div
   id="padding-control"
-  class="flex items-start gap-4 absolute border-4 border-black rounded-lg p-4 bg-amber-50"
+  class="flex items-start gap-4 absolute top-2 right-2 border-4 border-black rounded-lg p-4 bg-amber-50"
 >
   <div id="group-buttons" class="grid grid-cols-3 grid-rows-3 my-1 w-28">
     <!-- <select class="select select-bordered" /> -->

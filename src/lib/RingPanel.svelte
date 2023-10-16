@@ -8,7 +8,9 @@
   });
 </script>
 
-<div class="absolute border-4 border-black rounded-lg p-4 bg-amber-50">
+<div
+  class="absolute top-2 right-2 border-4 border-black rounded-lg p-4 bg-amber-50"
+>
   <section id="ring-width-panel" class="join mb-1">
     <label
       class="label border-2 border-black px-3 bg-amber-50 join-item"

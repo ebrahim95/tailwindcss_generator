@@ -59,7 +59,7 @@
 </script>
 
 <section
-  class="absolute border-4 border-black rounded-lg p-4 bg-amber-50 grid grid-cols-4 grid-flow-row gap-4 items-start"
+  class="absolute right-2 top-2 border-4 border-black rounded-lg p-4 bg-amber-50 grid grid-cols-4 grid-flow-row gap-4 items-start"
 >
   <div id="brightness-selector">
     <label class="label" for="brightness-range"

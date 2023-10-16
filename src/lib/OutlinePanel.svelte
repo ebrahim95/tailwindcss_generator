@@ -15,7 +15,7 @@
 
 <section
   id="outline-panel"
-  class=" flex items-start gap-4 absolute border-4 border-black rounded-lg p-4 bg-amber-50"
+  class="flex items-start gap-4 right-2 top-2 absolute border-4 border-black rounded-lg p-4 bg-amber-50"
 >
   <div id="outline-style-section" class="join mb-1">
     <label
