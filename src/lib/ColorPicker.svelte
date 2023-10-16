@@ -16,12 +16,12 @@
   //TODO you need change the state, might also have to add some positioning.
 </script>
 
-<div id="color-picker">
-  <div id="color-component-selector">
+<div id="color-picker" class={`${panel_toggle ? "" : "hidden"}`}>
+  <div id="color-component-selector" class="absolute top-28 left-2">
     <select
       bind:value={id_change}
       id="edit-component"
-      class="select select-bordered"
+      class="select border-black border-4 bg-amber-50"
     >
       <option value="bg">Background</option>
       <option value="border">Border</option>
@@ -33,7 +33,7 @@
     <select
       bind:value={color_shade}
       id="shade-of-color"
-      class="select select-bordered"
+      class="select border-black border-4 bg-amber-50"
     >
       <option value="50">50</option>
       <option value="100">100</option>
@@ -51,9 +51,7 @@
     on:keypress={handle_color}
     on:click={handle_color}
     id="color-panel"
-    class={`grid grid-cols-7 gap-1 bg-blue-100 ${
-      panel_toggle ? "hidden" : "absolute"
-    }  border-4 border-black p-1`}
+    class={`grid grid-cols-3 gap-1 bg-blue-100 top-44 left-2 absolute border-4 border-black p-1`}
     role="menu"
     tabindex="0"
   >
