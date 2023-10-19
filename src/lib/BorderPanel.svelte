@@ -2,14 +2,55 @@
   import { border_property } from "./stores";
 
   interface border_direction {
-    value: number;
+    value: string;
+    display_value: string;
     toggle: boolean;
   }
+
+  let bt: border_direction = {
+    value: "-0",
+    display_value: "0",
+    toggle: false,
+  };
+  let bb: border_direction = {
+    value: "-0",
+    display_value: "0",
+    toggle: false,
+  };
+
+  let bl: border_direction = {
+    value: "-0",
+    display_value: "0",
+    toggle: false,
+  };
+
+  let br: border_direction = {
+    value: "-0",
+    display_value: "0",
+    toggle: false,
+  };
+  let b: border_direction = {
+    value: "-0",
+    display_value: "0",
+    toggle: false,
+  };
+
+  let bx: border_direction = {
+    value: "-0",
+    display_value: "0",
+    toggle: false,
+  };
+
+  let by: border_direction = {
+    value: "-0",
+    display_value: "0",
+    toggle: false,
+  };
 
   let border_width_pos: number = 2;
   let border_width_values: Array<string> = ["-0", "", "-2", "-4", "-8"];
   $: border_width = border_width_values[border_width_pos];
-  $: sliced_width = border_width === "" ? 1 : border_width.slice(1);
+  $: sliced_width = border_width === "" ? "1" : border_width.slice(1);
 
   let style = "";
   let border_radius_collection = "";
@@ -21,44 +62,36 @@
 
   //TODO need to create different b* values for bx/by/b
 
-  let bt: border_direction = {
-    value: 0,
-    toggle: false,
-  };
-  let bb: border_direction = {
-    value: 0,
-    toggle: false,
-  };
-
-  let bl: border_direction = {
-    value: 0,
-    toggle: false,
-  };
-
-  let br: border_direction = {
-    value: 0,
-    toggle: false,
-  };
-  let b: border_direction = {
-    value: 0,
-    toggle: false,
-  };
-
-  let bx: border_direction = {
-    value: 0,
-    toggle: false,
-  };
-
-  let by: border_direction = {
-    value: 0,
-    toggle: false,
-  };
-
   $: border_property.update(() => $border_property.set("style", style));
   // TODO basically I need to seperate the logic into two
   // First I need to only change the value
   // then I scan the value to make sure the correct tailwind styles are working
-  $: if (bt.toggle && bb.toggle && bl.toggle && br.toggle) {
+
+  $: if (bt.value === bb.value) {
+    border_property.update(() => {
+      $border_property.set("border", "");
+      $border_property.set("border-t", "");
+      $border_property.set("border-b", "");
+
+      return $border_property.set("border-y", "border-y" + bt.value);
+    });
+  }
+
+  $: if (br.value === bl.value) {
+    border_property.update(() => {
+      $border_property.set("border", "");
+      $border_property.set("border-l", "");
+      $border_property.set("border-r", "");
+      return $border_property.set("border-x", "border-x" + br.value);
+    });
+  }
+
+  $: if (
+    bt.value === bl.value &&
+    bb.value === br.value &&
+    bt.value === bb.value &&
+    br.value === bl.value
+  ) {
     border_property.update(() => {
       $border_property.set("border-y", "");
       $border_property.set("border-x", "");
@@ -66,64 +99,18 @@
       $border_property.set("border-b", "");
       $border_property.set("border-l", "");
       $border_property.set("border-r", "");
-      return $border_property.set("border", "border" + border_width);
+      return $border_property.set("border", "border" + bt.value);
     });
-
-    bt.value = Number(sliced_width);
-    bb.value = Number(sliced_width);
-    bl.value = Number(sliced_width);
-    br.value = Number(sliced_width);
-  } else if (bt.toggle && bb.toggle) {
-    border_property.update(() => {
-      $border_property.set("border", "");
-      $border_property.set("border-t", "");
-      $border_property.set("border-b", "");
-      return $border_property.set("border-y", "border-y" + border_width);
-    });
-
-    bt.value = Number(sliced_width);
-    bb.value = Number(sliced_width);
-  } else if (br.toggle && bl.toggle) {
-    border_property.update(() => {
-      $border_property.set("border", "");
-      $border_property.set("border-l", "");
-      $border_property.set("border-r", "");
-      return $border_property.set("border-x", "border-x" + border_width);
-    });
-
-    br.value = Number(sliced_width);
-    bl.value = Number(sliced_width);
-  } else if (bt.toggle) {
+  } else {
     border_property.update(() => {
       $border_property.set("border", "");
       $border_property.set("border-y", "");
-      return $border_property.set("border-t", "border-t" + border_width);
-    });
-
-    bt.value = Number(sliced_width);
-  } else if (bb.toggle) {
-    border_property.update(() => {
-      $border_property.set("border", "");
-      $border_property.set("border-y", "");
-      return $border_property.set("border-b", "border-b" + border_width);
-    });
-
-    bb.value = Number(sliced_width);
-  } else if (bl.toggle) {
-    border_property.update(() => {
-      $border_property.set("border", "");
       $border_property.set("border-x", "");
-      return $border_property.set("border-l", "border-l" + border_width);
+      $border_property.set("border-t", "border-t" + bt.value);
+      $border_property.set("border-b", "border-b" + bb.value);
+      $border_property.set("border-l", "border-l" + bl.value);
+      return $border_property.set("border-r", "border-r" + br.value);
     });
-
-    bl.value = Number(sliced_width);
-  } else if (br.toggle) {
-    border_property.update(() => {
-      $border_property.set("border", "");
-      $border_property.set("border-x", "");
-      return $border_property.set("border-r", "border-r" + border_width);
-    });
-    br.value = Number(sliced_width);
   }
 </script>
 
@@ -132,38 +119,56 @@
   class="flex items-start gap-3 right-2 top-2 absolute border-4 border-black rounded-lg p-4 bg-amber-50"
 >
   <div id="group-buttons" class="grid grid-cols-3 grid-rows-3 my-1 w-28">
-    <!-- <select class="select select-bordered" /> -->
+    <!-- changed style when click, click to change width, also color the middle -->
+    <div class="row-start-2 row-end-2 col-start-2 col-end-2 bg-black" />
     <button
-      class={`col-span-1 col-start-2 col-end-2  rounded-t-lg ${
+      class={`col-span-1 col-start-2 col-end-2 rounded-t-lg ${
         bt.toggle ? "active" : ""
       }`}
-      on:click={() => (bt.toggle = !bt.toggle)}
+      on:click={() => {
+        bt.value = border_width_values[border_width_pos];
+        bt.display_value = sliced_width;
+        bt.toggle = !bt.toggle;
+      }}
     >
-      {bt.value}
+      {bt.display_value}
     </button>
     <button
       class={`${
         bl.toggle ? "active" : ""
       } row-start-2 row-end-2  rounded-l-lg `}
-      on:click={() => (bl.toggle = !bl.toggle)}
+      on:click={() => {
+        bl.value = border_width_values[border_width_pos];
+        bl.display_value = sliced_width;
+        bl.toggle = !bl.toggle;
+      }}
     >
-      {bl.value}</button
+      {bl.display_value}</button
     >
     <button
       class={`${
         br.toggle ? "active" : ""
       } row-start-2 row-end-2 col-start-3 col-end-3  rounded-r-lg `}
-      on:click={() => (br.toggle = !br.toggle)}
+      on:click={() => {
+        br.value = border_width_values[border_width_pos];
+        br.display_value = sliced_width;
+        br.toggle = !br.toggle;
+      }}
     >
-      {br.value}</button
+      {br.display_value}</button
     >
     <button
       class={`col-span-1 col-start-2 col-end-2 rounded-b-lg ${
         bb.toggle ? "active" : ""
       } row-start-3 row-end-3`}
-      on:click={() => (bb.toggle = !bb.toggle)}
+      on:click={() => {
+        bb.value = border_width_values[border_width_pos];
+
+        bb.display_value = sliced_width;
+        bb.toggle = !bb.toggle;
+      }}
     >
-      {bb.value}</button
+      {bb.display_value}</button
     >
   </div>
   <!-- 
@@ -229,6 +234,8 @@
   }
 
   #group-buttons > button:hover {
+    outline-style: solid;
+    outline-width: 3px;
     background-color: chocolate;
   }
 
