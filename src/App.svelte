@@ -1,7 +1,6 @@
 <script lang="ts">
   // import svelteLogo from "./assets/svelte.svg";
   // import viteLogo from "/vite.svg";
-  import AddHtmlComponent from "./lib/AddHtmlComponent.svelte";
   import BorderPanel from "./lib/BorderPanel.svelte";
   import ColorPicker from "./lib/ColorPicker.svelte";
   import DrawingComponent from "./lib/DrawingComponent.svelte";
