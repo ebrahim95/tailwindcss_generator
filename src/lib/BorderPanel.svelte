@@ -122,50 +122,73 @@
     <!-- changed style when click, click to change width, also color the middle -->
     <div class="row-start-2 row-end-2 col-start-2 col-end-2 bg-black" />
     <button
-      class={`col-span-1 col-start-2 col-end-2 rounded-t-lg ${
-        bt.toggle ? "active" : ""
-      }`}
+      class={`col-span-1 col-start-2 col-end-2 rounded-t-lg`}
+      id="top-button"
       on:click={() => {
         bt.value = border_width_values[border_width_pos];
         bt.display_value = sliced_width;
         bt.toggle = !bt.toggle;
+
+        const button = document.querySelector("#top-button");
+
+        setTimeout(() => {
+          button.style.backgroundColor = "";
+        }, 100);
+        button.style.backgroundColor = "white";
       }}
     >
       {bt.display_value}
     </button>
     <button
-      class={`${
-        bl.toggle ? "active" : ""
-      } row-start-2 row-end-2  rounded-l-lg `}
+      class={`
+       row-start-2 row-end-2  rounded-l-lg `}
+      id="left-button"
       on:click={() => {
         bl.value = border_width_values[border_width_pos];
         bl.display_value = sliced_width;
         bl.toggle = !bl.toggle;
+
+        const button = document.querySelector("#left-button");
+        setTimeout(() => {
+          button.style.backgroundColor = "";
+        }, 100);
+        button.style.backgroundColor = "white";
       }}
     >
       {bl.display_value}</button
     >
     <button
-      class={`${
-        br.toggle ? "active" : ""
-      } row-start-2 row-end-2 col-start-3 col-end-3  rounded-r-lg `}
+      class={`
+       row-start-2 row-end-2 col-start-3 col-end-3  rounded-r-lg `}
+      id="right-button"
       on:click={() => {
         br.value = border_width_values[border_width_pos];
         br.display_value = sliced_width;
         br.toggle = !br.toggle;
+
+        const button = document.querySelector("#right-button");
+        setTimeout(() => {
+          button.style.backgroundColor = "";
+        }, 100);
+        button.style.backgroundColor = "white";
       }}
     >
       {br.display_value}</button
     >
     <button
-      class={`col-span-1 col-start-2 col-end-2 rounded-b-lg ${
-        bb.toggle ? "active" : ""
-      } row-start-3 row-end-3`}
+      class={`col-span-1 col-start-2 col-end-2 rounded-b-lg row-start-3 row-end-3`}
+      id="bottom-button"
       on:click={() => {
         bb.value = border_width_values[border_width_pos];
 
         bb.display_value = sliced_width;
         bb.toggle = !bb.toggle;
+
+        const button = document.querySelector("#bottom-button");
+        setTimeout(() => {
+          button.style.backgroundColor = "";
+        }, 100);
+        button.style.backgroundColor = "white";
       }}
     >
       {bb.display_value}</button
