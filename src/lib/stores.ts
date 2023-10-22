@@ -4,7 +4,7 @@ import { writable } from "svelte/store";
 // export const editable_component = writable("")
 
 
-export const padding = writable("");
+export const padding_property = writable(new Map());
 export const color = writable("");
 
 
