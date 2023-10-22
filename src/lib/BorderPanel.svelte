@@ -24,23 +24,6 @@
     value: "-0",
     display_value: "0",
   };
-  let b: border_direction = {
-    value: "-0",
-    display_value: "0",
-    toggle: false,
-  };
-
-  let bx: border_direction = {
-    value: "-0",
-    display_value: "0",
-    toggle: false,
-  };
-
-  let by: border_direction = {
-    value: "-0",
-    display_value: "0",
-    toggle: false,
-  };
 
   let border_width_pos: number = 2;
   let border_width_values: Array<string> = ["-0", "", "-2", "-4", "-8"];
