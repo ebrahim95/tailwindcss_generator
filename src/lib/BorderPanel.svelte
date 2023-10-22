@@ -133,8 +133,8 @@
 
         setTimeout(() => {
           button.style.backgroundColor = "";
-        }, 100);
-        button.style.backgroundColor = "white";
+        }, 175);
+        button.style.backgroundColor = "lightblue";
       }}
     >
       {bt.display_value}
@@ -151,8 +151,8 @@
         const button = document.querySelector("#left-button");
         setTimeout(() => {
           button.style.backgroundColor = "";
-        }, 100);
-        button.style.backgroundColor = "white";
+        }, 175);
+        button.style.backgroundColor = "lightblue";
       }}
     >
       {bl.display_value}</button
@@ -169,8 +169,8 @@
         const button = document.querySelector("#right-button");
         setTimeout(() => {
           button.style.backgroundColor = "";
-        }, 100);
-        button.style.backgroundColor = "white";
+        }, 175);
+        button.style.backgroundColor = "lightblue";
       }}
     >
       {br.display_value}</button
@@ -187,8 +187,8 @@
         const button = document.querySelector("#bottom-button");
         setTimeout(() => {
           button.style.backgroundColor = "";
-        }, 100);
-        button.style.backgroundColor = "white";
+        }, 175);
+        button.style.backgroundColor = "lightblue";
       }}
     >
       {bb.display_value}</button
