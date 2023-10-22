@@ -40,6 +40,18 @@
   // First I need to only change the value
   // then I scan the value to make sure the correct tailwind styles are working
 
+  $: if (bt.value !== bb.value || br.value !== bl.value) {
+    border_property.update(() => {
+      $border_property.set("border", "");
+      $border_property.set("border-y", "");
+      $border_property.set("border-x", "");
+      $border_property.set("border-t", "border-t" + bt.value);
+      $border_property.set("border-b", "border-b" + bb.value);
+      $border_property.set("border-l", "border-l" + bl.value);
+      return $border_property.set("border-r", "border-r" + br.value);
+    });
+  }
+
   $: if (bt.value === bb.value) {
     border_property.update(() => {
       $border_property.set("border", "");
@@ -60,10 +72,12 @@
   }
 
   $: if (
-    bt.value === bl.value &&
-    bb.value === br.value &&
     bt.value === bb.value &&
-    br.value === bl.value
+    br.value === bl.value &&
+    bt.value === br.value &&
+    bb.value === bl.value &&
+    bt.value === bl.value &&
+    bb.value === br.value
   ) {
     border_property.update(() => {
       $border_property.set("border-y", "");
@@ -73,16 +87,6 @@
       $border_property.set("border-l", "");
       $border_property.set("border-r", "");
       return $border_property.set("border", "border" + bt.value);
-    });
-  } else {
-    border_property.update(() => {
-      $border_property.set("border", "");
-      $border_property.set("border-y", "");
-      $border_property.set("border-x", "");
-      $border_property.set("border-t", "border-t" + bt.value);
-      $border_property.set("border-b", "border-b" + bb.value);
-      $border_property.set("border-l", "border-l" + bl.value);
-      return $border_property.set("border-r", "border-r" + br.value);
     });
   }
 </script>
