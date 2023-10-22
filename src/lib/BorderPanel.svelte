@@ -4,30 +4,25 @@
   interface border_direction {
     value: string;
     display_value: string;
-    toggle: boolean;
   }
 
   let bt: border_direction = {
     value: "-0",
     display_value: "0",
-    toggle: false,
   };
   let bb: border_direction = {
     value: "-0",
     display_value: "0",
-    toggle: false,
   };
 
   let bl: border_direction = {
     value: "-0",
     display_value: "0",
-    toggle: false,
   };
 
   let br: border_direction = {
     value: "-0",
     display_value: "0",
-    toggle: false,
   };
   let b: border_direction = {
     value: "-0",
@@ -127,7 +122,6 @@
       on:click={() => {
         bt.value = border_width_values[border_width_pos];
         bt.display_value = sliced_width;
-        bt.toggle = !bt.toggle;
 
         const button = document.querySelector("#top-button");
 
@@ -146,7 +140,6 @@
       on:click={() => {
         bl.value = border_width_values[border_width_pos];
         bl.display_value = sliced_width;
-        bl.toggle = !bl.toggle;
 
         const button = document.querySelector("#left-button");
         setTimeout(() => {
@@ -164,7 +157,6 @@
       on:click={() => {
         br.value = border_width_values[border_width_pos];
         br.display_value = sliced_width;
-        br.toggle = !br.toggle;
 
         const button = document.querySelector("#right-button");
         setTimeout(() => {
@@ -182,7 +174,6 @@
         bb.value = border_width_values[border_width_pos];
 
         bb.display_value = sliced_width;
-        bb.toggle = !bb.toggle;
 
         const button = document.querySelector("#bottom-button");
         setTimeout(() => {
