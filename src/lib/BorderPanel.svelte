@@ -52,11 +52,6 @@
 
   //NOTE Read more about data attributes
 
-  //TODO make sure that direction panel is abstracted
-  //TODO needs to be a functional component
-
-  //TODO need to create different b* values for bx/by/b
-
   $: border_property.update(() => $border_property.set("style", style));
   // TODO basically I need to seperate the logic into two
   // First I need to only change the value
