@@ -7,7 +7,7 @@
   //TODO need to get a class and keep updating that specific class
 
   import {
-    padding,
+    padding_property,
     border_property,
     //  tag_to_add,
     color,
@@ -30,6 +30,7 @@
   $: effects_property_array = Array.from($effects_property.values()).join(" ");
   $: filter_property_array = Array.from($filter_property.values()).join(" ");
   $: border_property_array = Array.from($border_property.values()).join(" ");
+  $: padding_property_array = Array.from($padding_property.values()).join(" ");
 
   $: if ($color.includes("bg")) {
     bg_color = $color;
@@ -56,25 +57,15 @@
     }, 5000);
   }
 
-  //NOTE need to rework the part
-  //let first = `w-[400px] h-[400px] ${$padding} ${bg_color} ${$border_width} ${border_color} ${$border_radius} ${$ring_width} ${ring_color}`;
-  //let second = ``;
-  // $: second_element = document.createElement($tag_to_add);
-  // $: second_element.setAttribute("class", second);
-  // $: document?.getElementById("first")?.appendChild(second_element);
-  //
-  // $: if ($editable_component === "outside") {
-  //     first = `w-[400px] h-[400px] ${$padding} ${bg_color} ${$border_width} ${border_color} ${$border_radius} ${$ring_width} ${ring_color}`;
-  // } else {
-  //     second = `w-[200px] h-[200px] ${$padding} ${bg_color} ${$border_width} ${border_color} ${$border_radius} ${$ring_width} ${ring_color}`;
-  // }
+  //TODO need to add the abiilty to zoom out of canvas.
+  //TODO need to add the ability to add components
 </script>
 
-<div id="pendu" class="flex flex-col w-full my-auto items-center">
+<div id="canvas" class="flex flex-col w-full my-auto items-center">
   {#if show_code}
     <div
       id="first"
-      class={`my-auto w-[400px] h-[400px]  ${$padding} ${bg_color} ${border_color} ${border_property_array}
+      class={`my-auto w-[400px] h-[400px]  ${padding_property_array} ${bg_color} ${border_color} ${border_property_array}
       ${ring_property_array}  ${ring_color} ${ring_offset_color}  ${outline_property_array} ${outline_color} ${effects_property_array}
       ${shadow_color} ${filter_property_array}`}
     />
@@ -108,7 +99,7 @@
       <div class="mockup-code mt-2">
         <pre data-prefix="~">
         <code id="tailwind-classes">
-      {`my-auto w-[400px] h-[400px] ${$padding} ${bg_color} ${border_color} ${border_property_array} ` +
+      {`my-auto w-[400px] h-[400px] ${padding_property_array} ${bg_color} ${border_color} ${border_property_array} ` +
               `${ring_property_array} ${ring_color} ${ring_offset_color} ${outline_property_array} ${outline_color} ` +
               `${effects_property_array} ${shadow_color} ${filter_property_array}`}
         </code>
