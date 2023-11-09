@@ -111,7 +111,7 @@
   <div class="border-4 border-black bg-blue-300 p-2 justify-self-end">
     <h1>Tailwind CSS Style Generator</h1>
     <h2 class="font-bold">
-      Press Space to show shortcut <kbd class="kbd">MENU</kbd>
+      Press <kbd class="kbd">SPACE</kbd> to show shortcut MENU
     </h2>
   </div>
   <WhichKeyPanel />

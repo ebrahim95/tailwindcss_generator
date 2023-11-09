@@ -3,7 +3,7 @@
 </script>
 
 <div
-  class={`grid grid-cols-4 gap-2 p-2 border-2 border-black bg-blue-50 ${
+  class={`grid grid-cols-4 gap-2 p-2 border-2 border-black bg-blue-50 mb-2 ${
     which_key_panel_toggle ? "hidden" : "absolute"
   } self-center justify-self-end`}
 >
