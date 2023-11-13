@@ -1,17 +1,13 @@
 <script lang="ts">
   export let show_code: boolean;
   //TODO need to rework the code section
-
-  //NOTE No clue what I just said below
   //TODO need to create Ids so that I can delete the component more easily
   //TODO need to get a class and keep updating that specific class
 
   import {
     padding_property,
     border_property,
-    //  tag_to_add,
     color,
-    // editable_component,
     outline_property,
     ring_property,
     effects_property,

@@ -27,10 +27,8 @@
   //NOTE Maybe add skeleton ui for easy shipping
   //NOTE Regex for decimals
   //NOTE Where I need to edit and how will it be achieved
-  //NOTE So I need abstract the left right top and bottom
-  //NOTE abstract border and padding
-  //NOTE add absolute postions to the panels
-  //NOTE and decorate them well - also give instructions
+  //TODO add states like hover
+  //might sudo elements later like :marker
 </script>
 
 <!--
@@ -85,6 +83,12 @@
         class="bg-amber-50 mx-1 p-1 border-black border-solid border-4 rounded-md ring ring-offset-4"
       >
         Filter
+      </button>
+      <button
+        on:click={() => (panel_toggle = "filter")}
+        class="bg-amber-50 mx-1 p-1 border-black border-solid border-4 rounded-md ring ring-offset-4"
+      >
+        States
       </button>
     </div>
   </section>
