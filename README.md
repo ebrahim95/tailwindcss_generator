@@ -1,9 +1,9 @@
 # Tailwind CSS Generator
 
 ## About 
-Tailwind CSS Generator is a simple SAAS application <br/>
-that I am building. I am building it so that I can <br/>
-understand Tailwind better and improve my programming skills. 
+Tailwind CSS Generator is a NO-CODE SAAS application <br/>
+that I am building. This application is to ensure prototyping <br/>
+of tailwind components :) 
 
 ## Stack Used 
 The stack is simple 
