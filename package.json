@@ -26,6 +26,7 @@
     "vite": "^4.3.9"
   },
   "dependencies": {
-    "js-beautify": "^1.14.8"
+    "js-beautify": "^1.14.8",
+    "serve": "^14.2.3"
   }
 }
